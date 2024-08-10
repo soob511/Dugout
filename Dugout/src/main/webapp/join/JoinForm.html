@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>회원 가입</title>
+<link href="../common/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script src="../common/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="../common/jquery/jquery.min.js"></script>
+<link rel="stylesheet" href="Join.css">
+</head>
+<body>
+	<header id="header"></header>
+	<hr>
+	<main id="member-form">
+		<section class="title">
+			<span class="join">JOIN</span>
+		</section>
+		<form class="row g-3">
+			<fieldset class="col-12">
+				<legend class="form-label">아이디</legend>
+				<input type="text" class="form-control" id="inputId" placeholder="예) dugout">
+				<button type="button" class="check-duplicate">중복확인</button>
+			</fieldset>
+			<fieldset class="col-12">
+				<legend class="form-label">비밀번호</legend>
+				<input type="password" class="form-control" id="inputPassword" placeholder="영문, 숫자 조합 8 ~ 16자">
+			</fieldset>
+			<fieldset class="col-12">
+				<legend class="form-label">비밀번호 확인</legend>
+				<input type="password" class="form-control" id="inputPasswordConfirm" placeholder="영문, 숫자 조합 8 ~ 16자">
+			</fieldset>
+			<fieldset class="col-12">
+				<legend class="form-label">이름</legend>
+				<input type="text" class="form-control" id="inputName">
+			</fieldset>
+			<fieldset class="col-12">
+				<legend class="form-label">전화번호</legend>
+				<input type="text" class="form-control" id="inputPhone">
+			</fieldset>
+			<fieldset class="col-12">
+				<legend class="form-label">주소</legend>
+				<input type="text" class="form-control" id="inputAddress">
+			</fieldset>
+			<fieldset class="col-12">
+				<button type="submit" class="btn btn-primary btnMember">회원가입</button>
+			</fieldset>
+		</form>
+	</main>
+</body>
+</html>
