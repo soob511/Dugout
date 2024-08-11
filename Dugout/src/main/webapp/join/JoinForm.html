@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="JoinForm.css">
 </head>
 <body>
-	<header id="header"></header>
+	<header id="main-header"></header>
 	<hr>
 	<main id="member-form">
 		<section class="title">
@@ -46,5 +46,12 @@
 			</fieldset>
 		</form>
 	</main>
+	<footer id="main-footer"></footer>
+    <script>
+        $(document).ready(function(){
+            $("#main-header").load("../main/Header.html");
+            $("#main-footer").load("../main/Footer.html");
+        });
+    </script>
 </body>
 </html>
