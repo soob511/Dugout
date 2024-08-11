@@ -1,4 +1,4 @@
-#cart-ain{
+main{
 	width: 1334px;
 	margin: 144px 224px 0 170px;
 }
@@ -8,12 +8,14 @@
 	border-bottom: 5px solid black;
 	padding-bottom: 22px;
 }
-.cart-list{
+.cart-box{
 	float: left;
+	width: 912px;
+	margin-top:48px;
 }
 aside{
 	float: right;
-
+	
 }
 .pay-form{
 	border: 1px solid black;
@@ -75,4 +77,32 @@ button{
 }
 .total-money span:nth-of-type(2){
 	margin-left: 132px;
+}
+#btnDelete{
+	float: right;
+	width: 58px;
+	height: 36px;
+	background-color: #D81B2E;
+	color:#fff;
+	border-radius: 8px;
+	border: none;
+	font-weight: 600;
+}
+.checkbox{
+	width:18px;
+	height: 18px;
+}
+.all{
+	font-size: 16px;
+	font-weight: 400;
+	margin-bottom: 20px;
+	margin-left: 10px;
+}
+.cart-list{
+	margin-top:24px;
+	height: 240px;
+	border-top: 1px solid black;
+}
+.cart-list input{
+	margin-top: 40px;
 }
