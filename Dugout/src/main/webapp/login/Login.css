@@ -19,7 +19,7 @@ h1 {
 
 .loginpage-container {
     font-family:'Pretendard-Regular';
-    background-color: #f8f9fa;
+    background-color: white;
     margin: 0;
     display: flex;
     flex-direction: column;
