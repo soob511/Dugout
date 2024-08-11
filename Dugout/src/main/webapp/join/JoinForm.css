@@ -50,7 +50,6 @@ button {
     font-size: 15px;
     font-weight: bold;
     border: none;
-    border-radius: 25px;
     margin-top: 20px;
 }
 .check-duplicate {
@@ -71,9 +70,5 @@ button {
     height: 64px;
     border:none;
     background-color:#ebebeb;
-}
-.btnMember:hover {
-    background-color: #ebebeb; 
-    color: #ffffff; 
-    cursor:default;
+    border-radius:14px;
 }
