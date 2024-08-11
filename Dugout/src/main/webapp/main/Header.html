@@ -6,7 +6,97 @@
 <link href="../common/bootstrap/bootstrap.min.css" rel="stylesheet">
 <script src="../common/bootstrap/bootstrap.bundle.min.js"></script>
 <script src="../common/jquery/jquery.min.js"></script>
-<link href="Header.css" rel="stylesheet">
+<!-- <link href="Header.css" rel="stylesheet"> -->
+<style>
+    html{
+    width:1728px;
+}
+#header-body {
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    caret-color: transparent;
+}
+.logo-container {
+    clear: both;
+    margin-top: 62px;
+    margin-bottom: 60px;
+    position: relative;
+    text-align: center;
+}
+.logo-div {
+    display: inline-block;
+    text-align: center;
+}
+.logo {
+    width: 256px; 
+    height: 74px;
+    display: block;
+    margin: 0 auto;
+}
+.login{
+	top: -88px;
+	left: 440px;
+	font-size: 14px;
+}
+.member{
+	top: -88px;
+	left: 440px;
+	font-size: 14px;
+}
+.myPage{
+	position: absolute;
+    top: -2px;
+    left: 252px;
+}
+.cart{
+	position: absolute;   
+    top: -2px;
+	left: 252px;
+}
+.lefts {
+	position: absolute;
+	top: 24px;
+    left: 380px;
+    width: 100%;
+    text-align: center;
+}
+.lefts a {
+    display: inline-block;
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333333;
+    text-align: center;
+    position: relative;
+}
+.lefts img {
+    width: 34px; 
+    height: 30px;
+    display: block;
+    margin: 0 auto;
+}
+.lefts span{
+	font-weight: bold;
+	font-size: 16px;
+}
+.cart {
+    position: relative;
+}
+.cart-badge {
+    position: absolute;
+    top: -10px;
+    right: 6px;
+    background-color: #333333;
+    color: #ffffff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+</style>
 </head>
 <body id="header-body">
     <div class="logo-container">
@@ -24,6 +114,7 @@
                 <span class="cart-badge">0</span>
             </a>
         </div>
+    
     </div>
 </body>
 </html>
