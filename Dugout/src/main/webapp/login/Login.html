@@ -55,6 +55,24 @@
 
           localStorage.setItem("users", JSON.stringify(users));
         }
+        
+        const form = document.querySelector('form');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        
+        const usernameError = createErrorElement(usernameInput);
+        const passwordError = createErrorElement(passwordInput);
+
+        form.addEventListener('submit', handleFormSubmit);
+        passwordInput.addEventListener('input', maskPasswordInput);
+
+        function createErrorElement(inputElement) {
+          const errorElement = document.createElement('span');
+          errorElement.className = 'text-danger';
+          errorElement.style.display = 'none';
+          inputElement.parentNode.appendChild(errorElement);
+          return errorElement;
+        }
       });
     </script>
   </body>
