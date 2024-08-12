@@ -22,6 +22,15 @@ header, footer {
     font-weight: bold; 
 }
 
+.container.mt-5 {
+    margin-top: 0 !important;
+}
+
+.img-thumbnail {
+    max-width: 100px !important;
+    height: auto !important;
+}
+
 .menu-item {
     color: #b6b6b6;
     padding-bottom: 20px;
