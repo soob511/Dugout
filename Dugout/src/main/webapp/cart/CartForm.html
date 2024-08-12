@@ -9,6 +9,7 @@
 <link href="cartForm.css" rel="stylesheet">
 </head>
 <body>
+	<header></header>
 	<hr>
 	<main id="cart-main">
 		<section id="title">
@@ -106,6 +107,7 @@
 			</div>
 		</aside>
 	</main>
+	
 	<script>
 		$(document).ready(function(){
 			$("#pay-all").click(function(){
@@ -115,6 +117,12 @@
 				location.href ="../payment/Payment.html";
 			})
 		})
+		$(document).ready(function () {
+               $("header").load("../main/Header.html");
+              //$("footer").load("../main/Footer.html");
+        });
+
+
 	</script>
 </body>
 </html>
