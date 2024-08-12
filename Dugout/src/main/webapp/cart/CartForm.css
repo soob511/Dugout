@@ -1,4 +1,4 @@
-main{
+#cart-main{
 	width: 1334px;
 	margin: 144px 224px 0 170px;
 }
@@ -134,4 +134,7 @@ img{
 }
 hr{
     border-color:black;
+}
+footer{
+	clear: both;
 }
