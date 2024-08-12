@@ -13,6 +13,7 @@ body{
 .join {
     font-size: 36px;
     font-weight: bold;
+    color:#333333;
 }
 #member-form {
     max-width: 478px;
