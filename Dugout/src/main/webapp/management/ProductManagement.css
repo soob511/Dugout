@@ -30,3 +30,25 @@ h2 {
 .btn {
     width: 100%;
 }
+
+.custom-hr {
+    border: 0; 
+    height: 4px; 
+    background-color: #000; 
+    margin-bottom: 20px;
+}
+
+.d-flex {
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.d-flex .form-control {
+    width: auto;
+    max-width: 200px;
+}
+
+.d-flex .btn-dark {
+    width: auto;
+    max-width: 100px;
+}
