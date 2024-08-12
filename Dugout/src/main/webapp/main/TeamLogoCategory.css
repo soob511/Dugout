@@ -1,0 +1,16 @@
+@charset "UTF-8";
+body {
+    background-color: #f0f0f0;
+}
+
+.logo-grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    background-color: #fff;
+}
