@@ -1,19 +1,14 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: "Pretendard-Regular";
 }
 
 h2 {
-    margin-bottom: 20px;
+	color: #000;
 }
 
 .table th, .table td {
     vertical-align: middle;
     text-align: center;
-}
-
-.img-thumbnail {
-    max-width: 100px;
-    height: auto;
 }
 
 .form-select, .form-control {
@@ -30,6 +25,13 @@ h2 {
 
 .btn {
     width: 100%;
+}
+
+.title {
+    color: #333;
+    padding-bottom: 50px;
+    font-size: 40px;  
+    font-weight: 500;
 }
 
 .custom-hr {
@@ -52,13 +54,6 @@ h2 {
 .d-flex .btn-dark {
     width: auto;
     max-width: 100px;
-}
-
-.search-bar {
-    width: 300px;
-    position: absolute;
-    right: 20px;
-    top: 70px;
 }
 
 .search-bar .form-control {
