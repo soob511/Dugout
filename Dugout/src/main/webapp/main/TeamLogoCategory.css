@@ -14,3 +14,44 @@ body {
     grid-template-columns: repeat(6, 1fr);
     background-color: #fff;
 }
+
+body {
+    background-color: #f0f0f0;
+}
+
+.logo-grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    background-color: #fff;
+}
+
+.logo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    transition: opacity 0.1s ease;
+}
+
+.logo-item img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+.logo-item p {
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px;
+    text-align: center;
+}
