@@ -128,6 +128,38 @@
             }
             
             passwordInput.addEventListener('input', maskPasswordInput);
+            
+            function handleFormSubmit(event) {
+                event.preventDefault(); // 폼의 기본 제출 방지
+
+                if (validateForm()) {
+                  const formData = {
+                    username: usernameInput.value.trim(),
+                    password: passwordInput.value.trim()
+                  };
+
+                  sendLoginRequest(formData);
+                }
+              }
+
+              function sendLoginRequest(formData) {
+                $.ajax({
+                  url: '/login', 
+                  method: 'POST',
+                  contentType: 'application/json',
+                  data: JSON.stringify(formData),
+                  success: function (response) {
+                    if (response.success) {
+                      window.location.href = '/dashboard';
+                    } else {
+                      alert('로그인 실패: ' + response.message);
+                    }
+                  },
+                  error: function () {
+                    alert('로그인 중 오류가 발생했습니다.');
+                  }
+                });
+              }
       });
     </script>
   </body>
