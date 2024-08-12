@@ -9,6 +9,7 @@
 <link href="cartForm.css" rel="stylesheet">
 </head>
 <body>
+	<header></header>
 	<hr>
 	<main id="cart-main">
 		<section id="title">
@@ -22,11 +23,59 @@
 				<div class="cart-list">
 					<input class="form-check-input" type="checkbox" value=""id="flexCheckDefault">
 					<label class="form-check-label"for="flexCheckDefault"></label>
-					<a href="#"><img src="#"></a>
-					<span id="product-name"></span>
-					<span></span>
+					
+					<a href="#"><img src="../common/image/product/엘지트윈스4.png"></a>		
+					<div class="box">
+					<span id="product-name">[두산 베어스]마킹키트(원정)(개별판매용)</span>	<br>						
+					<span id="product-price">18,000원</span><br>	
+					<button type="button" class="btn btn-light">+</button>
+					<button type="button" class="btn btn-light">1</button>
+					<button type="button" class="btn btn-light">-</button>	
+					</div>			
 				</div>
-			</div>
+				
+				<div class="cart-list">
+					<input class="form-check-input" type="checkbox" value=""id="flexCheckDefault">
+					<label class="form-check-label"for="flexCheckDefault"></label>
+					
+					<a href="#"><img src="../common/image/product/엘지트윈스4.png"></a>		
+					<div class="box">
+					<span id="product-name">[두산 베어스]마킹키트(원정)(개별판매용)</span>	<br>						
+					<span id="product-price">18,000원</span><br>	
+					<button type="button" class="btn btn-light">+</button>
+					<button type="button" class="btn btn-light">1</button>
+					<button type="button" class="btn btn-light">-</button>	
+					</div>			
+				</div>
+				
+				<div class="cart-list">
+					<input class="form-check-input" type="checkbox" value=""id="flexCheckDefault">
+					<label class="form-check-label"for="flexCheckDefault"></label>
+					
+					<a href="#"><img src="../common/image/product/엘지트윈스4.png"></a>		
+					<div class="box">
+					<span id="product-name">[두산 베어스]마킹키트(원정)(개별판매용)</span>	<br>						
+					<span id="product-price">18,000원</span><br>	
+					<button type="button" class="btn btn-light">+</button>
+					<button type="button" class="btn btn-light">1</button>
+					<button type="button" class="btn btn-light">-</button>	
+					</div>			
+				</div>
+				
+				<div class="cart-list">
+					<input class="form-check-input" type="checkbox" value=""id="flexCheckDefault">
+					<label class="form-check-label"for="flexCheckDefault"></label>
+					
+					<a href="#"><img src="../common/image/product/엘지트윈스4.png"></a>		
+					<div class="box">
+					<span id="product-name">[두산 베어스]마킹키트(원정)(개별판매용)</span>	<br>						
+					<span id="product-price">18,000원</span><br>	
+					<button type="button" class="btn btn-light">+</button>
+					<button type="button" class="btn btn-light">1</button>
+					<button type="button" class="btn btn-light">-</button>	
+					</div>			
+				</div>
+					<hr>
 		</article>
 		<aside class="pay-side">
 			<div class="pay-form">
@@ -58,6 +107,7 @@
 			</div>
 		</aside>
 	</main>
+	<footer></footer>
 	<script>
 		$(document).ready(function(){
 			$("#pay-all").click(function(){
@@ -67,6 +117,10 @@
 				location.href ="../payment/Payment.html";
 			})
 		})
+		$(document).ready(function () {
+               $("header").load("../main/Header.html");
+               $("footer").load("../main/Footer.html");
+        });
 	</script>
 </body>
 </html>
