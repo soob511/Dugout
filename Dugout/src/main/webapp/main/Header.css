@@ -45,14 +45,14 @@ html{
     top: -2px;
 	left: 252px;
 }
-.lefts {
+.rights {
 	position: absolute;
 	top: 24px;
     left: 1020px;
     width: 20%;
     text-align: center;
 }
-.lefts a {
+.rights a {
     display: inline-block;
     margin-left: 20px;
     text-decoration: none;
@@ -60,13 +60,13 @@ html{
     text-align: center;
     position: relative;
 }
-.lefts img {
+.rights img {
     width: 34px; 
     height: 30px;
     display: block;
     margin: 0 auto;
 }
-.lefts span{
+.rights span{
 	font-weight: bold;
 	font-size: 16px;
 }
