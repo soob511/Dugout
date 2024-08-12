@@ -1,0 +1,76 @@
+@font-face {
+	font-family: "Pretendard-Regular";
+	src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+		 format("woff");
+	font-weight: 400;
+	font-style: normal;
+}
+#product-insert-body {
+	font-family: "Pretendard-Regular";
+}
+.product-insert-title {
+	display:block;
+	font-size: 40px;
+	font-weight: 600;
+	margin-top: 72px;
+	margin-bottom: 24px;
+}
+.product-insert-box{
+	width:1024px;
+	border-bottom: 5px solid #000;
+}
+#insertForm{
+	margin-top: 70px;
+}
+#insertForm span{
+	font-size: 28px;
+	font-weight: 600;
+}
+#insertForm select{
+	width: 144px;
+	height: 36px;
+	border-radius: 8px;
+	padding: 8px;
+}
+.team-insert-list{
+	margin-left: 108px;
+	margin-right: 22px;
+}
+.product-group {
+	display: flex;
+	align-items: center;
+	margin: 52px 0 ;
+	
+}
+.product-group label {
+	width: 150px;
+	font-size: 18px;
+	font-weight: bold;
+	margin-right: 10px;
+}
+.product-group input {
+	flex: 1;
+	max-width: 670px;
+}
+.action-buttons {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 20px;
+	margin-top: 40px;
+	max-width: 870px;
+}
+.action-buttons button {
+	padding: 10px 20px;
+	font-size: 18px;
+	border: none;
+	cursor: pointer;
+}
+.preview-button {
+	background-color: white;
+	border: 1px solid black !important;
+}
+.save-button {
+	background-color: black;
+	color: white;
+}
