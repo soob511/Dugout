@@ -1,4 +1,5 @@
 body {
+    font-family: 'Arial', sans-serif;
 }
 
 h2 {
@@ -51,4 +52,21 @@ h2 {
 .d-flex .btn-dark {
     width: auto;
     max-width: 100px;
+}
+
+.search-bar {
+    width: 300px;
+    position: absolute;
+    right: 20px;
+    top: 70px;
+}
+
+.search-bar .form-control {
+    height: 36px;
+    font-size: 14px;
+}
+
+.search-bar .btn-dark {
+    height: 36px;
+    font-size: 14px;
 }
