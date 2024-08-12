@@ -122,6 +122,12 @@
             function hideError(errorElement) {
               errorElement.style.display = 'none';
             }
+            
+            function maskPasswordInput() {
+            	this.style.fontFamily = 'password';
+            }
+            
+            passwordInput.addEventListener('input', maskPasswordInput);
       });
     </script>
   </body>
