@@ -73,6 +73,46 @@
           inputElement.parentNode.appendChild(errorElement);
           return errorElement;
         }
+        
+        function validateForm() {
+            let isValid = true;
+
+            isValid = validateUsername() && isValid;
+            isValid = validatePassword() && isValid;
+
+            return isValid;
+          }
+
+          function validateUsername() {
+            const usernameValue = usernameInput.value.trim();
+
+            if (usernameValue === '') {
+              displayError(usernameError, '아이디를 입력해주세요.');
+              return false;
+            } else {
+              hideError(usernameError);
+              return true;
+            }
+          }
+
+          function validatePassword() {
+            const passwordValue = passwordInput.value.trim();
+            const passwordPattern = /^[A-Za-z0-9]+$/;
+
+            if (passwordValue === '') {
+              displayError(passwordError, '비밀번호를 입력해주세요.');
+              return false;
+            } else if (passwordValue.length < 8) {
+              displayError(passwordError, '비밀번호는 최소 8자 이상이어야 합니다.');
+              return false;
+            } else if (!passwordPattern.test(passwordValue)) {
+              displayError(passwordError, '비밀번호는 영문자와 숫자만 포함해야 합니다.');
+              return false;
+            } else {
+              hideError(passwordError);
+              return true;
+            }
+          }
       });
     </script>
   </body>
