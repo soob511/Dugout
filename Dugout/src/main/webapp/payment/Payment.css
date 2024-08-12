@@ -61,3 +61,38 @@ body {
     margin-right: 20px;
     border: 1px solid #333;
 }
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+.total-label {
+    font-weight: bold;
+    color: #333;
+}
+
+.total-value {
+    font-weight: bold;
+    color: #333;
+}
+
+.pay-button {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.pay-button:hover {
+    background-color: #555;
+}
