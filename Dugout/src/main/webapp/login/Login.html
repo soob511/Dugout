@@ -58,14 +58,14 @@
           users.push(
             {
               id: "soobin",
-              password: "1234",
+              password: "12341234",
               name: "전수빈",
               phone: "01049076427",
               address: "서울특별시 종로구 창경궁로 254 동원빌딩 402호 ",
             },
             {
               id: "admin",
-              password: "1234",
+              password: "12341234",
               name: "관리자",
               phone: "01012345678",
               address: "서울특별시 종로구 창경궁로 254 동원빌딩 402호 ",
@@ -79,14 +79,23 @@
           var id = $("#username").val().trim();
           var password = $("#password").val().trim();
 
-          if (id !== "" && password !== "") {
-            console.log(" 빈칸아님");
+          if (id !== "" && password !== ""&&password.length>=8&&password.length<=16) {
             $(".login-btn").prop("disabled", false);
           } else {
             $(".login-btn").prop("disabled", true);
           }
         });
 
+        $("#password").on("input", function () {
+          var password = $("#password").val().trim();
+          if (password.length < 8 || password.length > 16) {
+            passwordError.textContent = "비밀번호의 길이는 8~16자입니다.";
+            passwordError.style.display = "block";
+          } else {
+            passwordError.style.display = "none";
+          }
+        });
+        
         $("#loginForm").submit(function (e) {
           e.preventDefault();
 
@@ -107,62 +116,14 @@
             localStorage.setItem("userAdmin", userAdmin);
             location.href = "../main/Main.html";
           } else {
-            $("#result").text("회원 정보가 없습니다.");
+            alert("일치하는 회원정보가 없습니다.");
+            location.href = "../login/Login.html";
           }
         });
 
-        $("button").click(function(){
-            location.href="../join/JoinForm.html"
-        })
-
-        // const form = document.getElementById("loginForm");
-        // const usernameInput = document.getElementById("username");
-        // const passwordInput = document.getElementById("password");
-        // const usernameError = document.getElementById("usernameError");
-        // const passwordError = document.getElementById("passwordError");
-
-        // if (!usernameError || !passwordError) {
-        //   console.error("제대로 되고 있나 확인합니다.");
-        //   return;
-        // }
-
-        // function validateForm() {
-        //   let isValid = true;
-
-        //   const usernameValue = usernameInput.value.trim();
-        //   const passwordValue = passwordInput.value.trim();
-        //   const passwordPattern = /^[A-Za-z0-9]+$/;
-
-        //   if (usernameValue === "") {
-        //     usernameError.textContent = "아이디를 입력해주세요.";
-        //     usernameError.style.display = "block";
-        //     isValid = false;
-        //   } else {
-        //     usernameError.style.display = "none";
-        //   }
-
-        //   if (passwordValue === "") {
-        //     passwordError.textContent = "비밀번호를 입력해주세요.";
-        //     passwordError.style.display = "block";
-        //     isValid = false;
-        //   } else if (passwordValue.length < 4) {
-        //     passwordError.textContent =
-        //       "비밀번호는 최소 4자 이상이어야 합니다.";
-        //     passwordError.style.display = "block";
-        //     isValid = false;
-        //   } else {
-        //     passwordError.style.display = "none";
-        //   }
-
-        //   return isValid;
-        // }
-
-        // form.addEventListener("submit", function (event) {
-        //   event.preventDefault();
-        //   if (validateForm()) {
-        //     window.location.href = "../main/Main.html";
-        //   }
-        // });
+        $("button").click(function () {
+          location.href = "../join/JoinForm.html";
+        });
       });
     </script>
   </body>
