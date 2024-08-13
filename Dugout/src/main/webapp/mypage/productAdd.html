@@ -8,13 +8,11 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 <link rel="stylesheet" href="PurchaseHistory.css">
 <style>
-  body {
+  #member-info {
         font-family: 'Pretendard-Regular';
         margin: 20px;
     }
-    hr{
-        color:3px solid black;
-     }   
+    
     .member-information {
     	width: 1028px;
     	padding: 0;
@@ -23,7 +21,9 @@
     .member-information-header {
         font-size: 30px;
         font-weight: bold;
-        margin-bottom: 20px;
+        padding: 0px 0px 18px 0px;
+        margin-bottom: 51px;
+        border-bottom : 5px solid black;
     }
     .membership board{
         width: 478px;
@@ -69,12 +69,11 @@
   
 </style>
 </head>
-<body>
+<body id="member-info">
     <div class="member-information">
         <div class="member-information-header">
             회원 정보
-        </div>
-        <hr>        
+        </div>      
         <div class="membership board">
         <div class="member-id ">
            <span>아이디</span>         
