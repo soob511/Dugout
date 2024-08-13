@@ -49,7 +49,9 @@
 
         var users = JSON.parse(localStorage.getItem("users")) || [];
         localStorage.removeItem("login");
+        localStorage.removeItem("userAdmin");
         var loginSuccess = false;
+        var userAdmin = false;
 
         if (users.length === 0) {
           users.push({
@@ -76,14 +78,18 @@
             var password = $("#password").val().trim();
             console.log(id);
             console.log(password);
-            var findLogin = users.find(function(user){
+            var isfindLogin = users.find(function(user){
                 return user.id ===id && user.password===password;
             })
 
-            if(findLogin){
-                location.href="../main/Main.html";
+            if(isfindLogin){
+                if(id==="admin"){
+                    userAdmin = true;
+                }
                 loginSuccess=true;
                 localStorage.setItem("login",loginSuccess);
+                localStorage.setItem("userAdmin",userAdmin);
+                location.href="../main/Main.html";
             }else{
                 console.log("로그인실패");
             }
