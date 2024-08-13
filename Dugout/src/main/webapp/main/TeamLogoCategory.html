@@ -8,51 +8,51 @@
 <body>
 	<div class="logo-grid-container">
         <div class="logo-grid">
-            <div class="logo-item" data-url="url1">
+            <div class="logo-item">
                 <img src="../common/image/teamLogo/kboTeamLogo.png" alt="ALL Logo">
                 <p>ALL</p>
             </div>
-            <div class="logo-item" data-url="url2">
+            <div class="logo-item">
                 <img src="../common/image/teamLogo/koreaTeamLogo.png" alt="Korea Team Logo">
                 <p>국가대표</p>
             </div>
-            <div class="logo-item" data-url="url3">
+            <div class="logo-item">
                 <img src="../common/image/teamLogo/lgTeamLogo.png" alt="LG Twins Logo">
                 <p>엘지 트윈스</p>
             </div>
-            <div class="logo-item" data-url="url4">
+            <div class="logo-item">
                 <img src="../common/image/teamLogo/ktTeamLogo.png" alt="KT Wiz Logo">
                 <p>케이티 위즈</p>
             </div>
-            <div class="logo-item" data-url="url5">
+            <div class="logo-item">
                 <img src="../common/image/teamLogo/ssgTeamLogo.png" alt="SSG Landers Logo">
                 <p>SSG 랜더스</p>
             </div>
-            <div class="logo-item" data-url="url6">
+            <div class="logo-item">
                 <img src="../common/image/teamLogo/ncTeamLogo.png" alt="NC Dinos Logo">
                 <p>엔씨 다이노스</p>
             </div>
-            <div class="logo-item" data-url="url7">
+            <div class="logo-item">
                 <img src="../common/image/teamLogo/doosanTeamLogo.png" alt="Doosan Bears Logo">
                 <p>두산 베어스</p>
             </div>
-            <div class="logo-item" data-url="url8">
+            <div class="logo-item">
                 <img src="../common/image/teamLogo/kiaTeamLogo.png" alt="KIA Tigers Logo">
                 <p>기아 타이거스</p>
             </div>
-            <div class="logo-item" data-url="url9">
+            <div class="logo-item">
                 <img src="../common/image/teamLogo/lotteTeamLogo.png" alt="Lotte Giants Logo">
                 <p>롯데 자이언트</p>
             </div>
-            <div class="logo-item" data-url="url10">
+            <div class="logo-item">
                 <img src="../common/image/teamLogo/samsungTeamLogo.png" alt="Samsung Lions Logo">
                 <p>삼성 라이온스</p>
             </div>
-            <div class="logo-item" data-url="url11">
+            <div class="logo-item">
                 <img src="../common/image/teamLogo/hanhwaTeamLogo.png" alt="Hanwha Eagles Logo">
                 <p>한화 이글스</p>
             </div>
-            <div class="logo-item" data-url="url12">
+            <div class="logo-item">
                 <img src="../common/image/teamLogo/kiwoomTeamLogo.png" alt="Kiwoom Heroes Logo">
                 <p>키움 히어로즈</p>
             </div>
@@ -62,18 +62,11 @@
     <script>
     	document.querySelectorAll('.logo-item').forEach(item => {
         	item.addEventListener('click', function() {
-            	document.querySelectorAll('.logo-item').forEach(otherItem => {
+        		document.querySelectorAll('.logo-item').forEach(otherItem => {
                 	otherItem.classList.add('dimmed');
             	});
 
             	this.classList.remove('dimmed');
-
-            	const url = this.getAttribute('data-url');
-            	if (url) {
-                	window.location.href = url;
-            	} else {
-                	console.log('URL이 없습니다.');
-            	}
         	});
     	});
 	</script>
