@@ -125,7 +125,8 @@ $(document).ready(function () {
             localStorage.removeItem("userAdmin");
             location.href = "../main/Main.html"; 
         });
-        $(".member").css("visibility", "hidden");;
+        $(".member").css("display", "none");
+        $(".login").css({"left":"350px"})
     } else {
         $(".login").text("로그인");
     }

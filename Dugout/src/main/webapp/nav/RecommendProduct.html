@@ -271,6 +271,7 @@ $('.bi-heart').on('click',function(){
         }      
     });
 $(document).ready(function () {
+    
     $("header").load("../main/Header.html", function() {
         initializeHeader();
     });
@@ -280,23 +281,23 @@ $(document).ready(function () {
     });
 });
 function initializeHeader() {
+    var loginSuccess = localStorage.getItem("login");
     $('.cart').css({
-        'top': '0px', 
-        'left': '240px'    
+    'top': '-2px', 
+    'left': '240px'    
     });
     $('.cart-badge').css({
-        'top': '-8px',        
-        'left': '40px',
-        'border-radius' : "50%",
-        'width' : '20px',
-        'height' : '20px',
-        'text-align' : 'center',
-        'font-size' : '12px',
-        'font-weight' : 'bold',
-        
+    'top': '-8px',        
+    'left': '40px',
+    'border-radius' : "50%",
+    'width' : '20px',
+    'height' : '20px',
+    'text-align' : 'center',
+    'font-size' : '12px',
+    'font-weight' : 'bold',
     });
     $('.rights span').css({
-      'padding' :'0'
+    'padding' :'0'
     });
 }
 function initializeFooter() {
