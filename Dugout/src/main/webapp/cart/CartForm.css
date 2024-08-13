@@ -1,6 +1,7 @@
 #cart-main{
 	width: 1334px;
 	margin: 144px 224px 0 170px;
+	color: #000;
 }
 #title {
 	font-size: 40px;
@@ -15,7 +16,6 @@
 }
 aside{
 	float: right;
-	
 }
 .pay-form{
 	border: 1px solid black;
@@ -25,6 +25,7 @@ aside{
 }
 .pay-form hr{
 	width: 310px;
+	margin: 0 auto; 
 }
 .product-call {
 	display: inline-block;
