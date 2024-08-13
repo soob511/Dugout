@@ -83,11 +83,20 @@
         </div>
         <div class="rights">
         	<a href="#" class="login">로그아웃</a>
-            <a href="#" class="myPage"><img src="../common/image/logo/myPage.png">
+            <a href="../management/MainManagement.html" class="myPage"><img src="../common/image/logo/myPage.png">
             	<span>관리자페이지</span>
             </a>
         </div>
     
     </div>
+    <script>
+        $(document).ready(function () {
+            $(".login").on("click", function () {
+                localStorage.removeItem("login");
+                localStorage.removeItem("userAdmin");
+                location.href = "../main/Main.html";
+            });
+        });
+    </script>
 </body>
 </html>
