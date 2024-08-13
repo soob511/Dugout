@@ -71,24 +71,42 @@ header, footer {
 	border-bottom: 2px solid #333333 !important;
 }
 
-.login-btn, .signup-btn {
+.signup-btn {
 	width: calc(100% - 40px);
 	padding: 13px;
 	margin-bottom: 15px;
 	border-radius: 10px;
 	font-size: 18px;
-	cursor: pointer;
 }
 
-.login-btn {
-	background-color: #333333;
-	color: #ffffff;
+.login-btn:disabled{
+	width: calc(100% - 40px);
+    padding: 13px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: not-allowed;
+    background-color: #EBEBEB;
+    color: #333333;
+    border: none;
+}
+.login-btn{
+	width: calc(100% - 40px);
+    padding: 13px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #333333;
+    color: white;
+    border: none;
 }
 
 .signup-btn {
 	background-color: #ffffff;
 	color: #333333;
 	border: 1px solid #333333;
+	cursor: pointer;
 }
 
 .options {
@@ -104,4 +122,10 @@ header, footer {
 .options a {
 	text-decoration: none;
 	color: #333333;
+}
+
+#result{
+	color: red;
+	size: 20px;
+	margin-top: 10px;
 }

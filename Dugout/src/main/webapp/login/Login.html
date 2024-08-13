@@ -32,13 +32,14 @@
             <input type="password" id="password" class="form-control" />
             <div id="passwordError" style="color: red; display: none"></div>
           </div>
-          <button type="submit" class="login-btn">로그인</button>
+          <button type="submit" class="login-btn" disabled>로그인</button>
           <button type="button" class="signup-btn">회원가입</button>
         </form>
         <div class="options">
           <a href="FindId.html">아이디 찾기</a>
           <a href="#">비밀번호 찾기</a>
         </div>
+        <div id="result"></div>
       </div>
       <footer id="main-footer"></footer>
     </div>
@@ -48,47 +49,71 @@
         $("#main-footer").load("../main/Footer.html");
 
         var users = JSON.parse(localStorage.getItem("users")) || [];
+        localStorage.removeItem("login");
+        localStorage.removeItem("userAdmin");
+        var loginSuccess = false;
+        var userAdmin = false;
 
         if (users.length === 0) {
-          users.push({
-            id: "soobin",
-            password: "1234",
-            name: "전수빈",
-            phone: "01049076427",
-            address: "서울특별시 종로구 창경궁로 254 동원빌딩 402호 ",
-          },{
-            id: "admin",
-            password: "1234",
-            name: "관리자",
-            phone: "01012345678",
-            address: "서울특별시 종로구 창경궁로 254 동원빌딩 402호 ",
-          });
-          
+          users.push(
+            {
+              id: "soobin",
+              password: "1234",
+              name: "전수빈",
+              phone: "01049076427",
+              address: "서울특별시 종로구 창경궁로 254 동원빌딩 402호 ",
+            },
+            {
+              id: "admin",
+              password: "1234",
+              name: "관리자",
+              phone: "01012345678",
+              address: "서울특별시 종로구 창경궁로 254 동원빌딩 402호 ",
+            }
+          );
+
           localStorage.setItem("users", JSON.stringify(users));
         }
 
-        $("#loginForm").submit(function(e){
-            e.preventDefault();
+        $("#username,#password").on("input", function () {
+          var id = $("#username").val().trim();
+          var password = $("#password").val().trim();
 
-            var id = $("#username").val().trim();
-            var password = $("#password").val().trim();
-            console.log(id);
-            console.log(password);
-            var findLogin = users.find(function(user){
-                return user.id ===id && user.password===password;
-            })
+          if (id !== "" && password !== "") {
+            console.log(" 빈칸아님");
+            $(".login-btn").prop("disabled", false);
+          } else {
+            $(".login-btn").prop("disabled", true);
+          }
+        });
 
-            if(findLogin){
-                location.href="../main/Main.html";
-                console.log("로그인성공");
-            }else{
-                console.log("로그인실패");
+        $("#loginForm").submit(function (e) {
+          e.preventDefault();
+
+          var id = $("#username").val().trim();
+          var password = $("#password").val().trim();
+          console.log(id);
+          console.log(password);
+          var isfindLogin = users.find(function (user) {
+            return user.id === id && user.password === password;
+          });
+
+          if (isfindLogin) {
+            if (id === "admin") {
+              userAdmin = true;
             }
+            loginSuccess = true;
+            localStorage.setItem("login", loginSuccess);
+            localStorage.setItem("userAdmin", userAdmin);
+            location.href = "../main/Main.html";
+          } else {
+            $("#result").text("회원 정보가 없습니다.");
+          }
+        });
 
+        $("button").click(function(){
+            location.href="../join/JoinForm.html"
         })
-
-
-        
 
         // const form = document.getElementById("loginForm");
         // const usernameInput = document.getElementById("username");
