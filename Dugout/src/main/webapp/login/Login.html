@@ -48,6 +48,8 @@
         $("#main-footer").load("../main/Footer.html");
 
         var users = JSON.parse(localStorage.getItem("users")) || [];
+        localStorage.removeItem("login");
+        var loginSuccess = false;
 
         if (users.length === 0) {
           users.push({
@@ -80,7 +82,8 @@
 
             if(findLogin){
                 location.href="../main/Main.html";
-                console.log("로그인성공");
+                loginSuccess=true;
+                localStorage.setItem("login",loginSuccess);
             }else{
                 console.log("로그인실패");
             }
