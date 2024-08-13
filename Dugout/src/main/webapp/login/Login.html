@@ -39,6 +39,7 @@
           <a href="FindId.html">아이디 찾기</a>
           <a href="#">비밀번호 찾기</a>
         </div>
+        <div id="result"></div>
       </div>
       <footer id="main-footer"></footer>
     </div>
@@ -91,7 +92,7 @@
                 localStorage.setItem("userAdmin",userAdmin);
                 location.href="../main/Main.html";
             }else{
-                console.log("로그인실패");
+                $("#result").text("회원 정보가 없습니다.")
             }
 
         })

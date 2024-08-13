@@ -105,3 +105,9 @@ header, footer {
 	text-decoration: none;
 	color: #333333;
 }
+
+#result{
+	color: red;
+	size: 20px;
+	margin-top: 10px;
+}
