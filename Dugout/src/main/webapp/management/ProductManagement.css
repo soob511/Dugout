@@ -4,6 +4,8 @@ body {
 
 .product-insert-title {
     font-weight: bold;
+   	width:1140px;
+    
 }
 
 .table th, .table td {
