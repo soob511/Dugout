@@ -1,56 +1,252 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>회원 가입</title>
-<link href="../common/bootstrap/bootstrap.min.css" rel="stylesheet">
-<script src="../common/bootstrap/bootstrap.bundle.min.js"></script>
-<script src="../common/jquery/jquery.min.js"></script>
-<link rel="stylesheet" href="JoinForm.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Form</title>
+    <link href="common/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <script src="common/bootstrap/bootstrap.min.js.map"></script>
+    <script src="common/bootstrap/jquery.min.js.map"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <link href="../common/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <script src="../common/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="../common/jquery/jquery.min.js"></script>
+    <link rel="stylesheet" href="JoinForm.css">
 </head>
-<body class="join-body">
-	<header id="main-header"></header>
-	<hr class="join-hr">
-	<main id="member-form">
-		<section class="title">
-			<span class="join">JOIN</span>
-		</section>
-		<form class="row g-3">
-			<fieldset class="col-12">
-				<div class="mb-3">
-					<label for="inputId" class="form-label">아이디</label>
-					<input type="text" class="form-control" id="inputId" placeholder="예) dugout" >
-					<button type="button" class="check-duplicate">중복확인</button>
-				</div>
-				<div class="mb-3">
-					<label for="inputPassword" class="form-label">비밀번호</label>
-					<input type="password" class="form-control" id="inputPassword" placeholder="영문, 숫자 조합 8 ~ 16자" >
-				</div>
-				<div class="mb-3">
-					<label for="inputPasswordConfirm" class="form-label">비밀번호 확인</label>
-					<input type="password" class="form-control" id="inputPasswordConfirm" placeholder="영문, 숫자 조합 8 ~ 16자" >
-				</div>
-				<div class="mb-3">
-					<label for="inputName" class="form-label">이름</label>
-					<input type="text" class="form-control" id="inputName" >
-				</div>
-				<div class="mb-3">
-					<label for="inputPhone" class="form-label">전화번호</label>
-					<input type="text" class="form-control" id="inputPhone" >
-				</div>
-				<div class="mb-3">
-					<label for="inputAddress" class="form-label">주소</label>
-					<input type="text" class="form-control" id="inputAddress">
-				</div>
-				<button type="submit" class="btnMember">회원가입</button>
-			</fieldset>
-		</form>
-	</main>
-	<footer id="main-footer"></footer>
+<body>
+    <header id="header"></header>
+    <hr>
+    <main id="member-form">
+        <section class="title">
+            <span class="join">JOIN</span>
+        </section>
+        <form class="row g-3">
+        
+            <fieldset class="col-12">
+                <legend class="form-label">아이디</legend>
+                <div class="form-group-wrapper">
+                    <input type="text" class="form-control" id="username" placeholder="예) dugout">
+                    <button type="button" id="check-duplicate" class="check-duplicate">중복확인</button>
+                    <span class="message username-message">이미 존재하는 아이디입니다.</span>
+                </div>
+            </fieldset>
+            
+            <fieldset class="col-12">
+                <legend class="form-label" id="password-label">비밀번호</legend>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password" placeholder="영문, 숫자 조합 8 ~ 16자">
+                    <span class="message strongPassword-message">비밀번호 형식이 올바르지 않습니다.</span>
+                </div>
+            </fieldset>
+            
+            <fieldset class="col-12">
+                <legend class="form-label" id="password-retype-label">비밀번호 확인</legend>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password-retype" placeholder="비밀번호 확인">
+                    <span class="message mismatch-message">비밀번호가 일치하지 않습니다.</span>
+                </div>
+            </fieldset>
+            
+            <fieldset class="col-12">
+                <legend class="form-label">이름</legend>
+                <input type="text" class="form-control" id="inputName" placeholder="이름을 입력하세요">
+            </fieldset>
+            
+            <fieldset class="col-12">
+                <legend class="form-label">전화번호</legend>
+                <input type="text" class="form-control" id="inputPhone" placeholder="전화번호를 입력하세요">
+            </fieldset>
+            
+            <fieldset class="col-12">
+                <legend class="form-label">주소</legend>
+                <input type="text" class="form-control" id="inputAddress" placeholder="주소를 입력하세요">
+            </fieldset>
+            
+            <fieldset class="col-12">
+                <button type="submit" class="btn btn-primary btnMember">회원가입</button>
+            </fieldset>
+            
+        </form>
+    </main>
+
     <script>
-        $(document).ready(function(){
-            $("#main-header").load("../main/Header.html");
-            $("#main-footer").load("../main/Footer.html");
+        // 아이디 정보 가져오기
+        let elInputUsername = document.querySelector('#username'); // input#username
+        let elCheckDuplicateButton = document.querySelector('#check-duplicate'); // button#check-duplicate
+
+        // 비밀번호 정보 가져오기
+        let elInputPassword = document.querySelector('#password'); // input#password
+        let elInputPasswordRetype = document.querySelector('#password-retype'); // input#password-retype
+        let elMismatchMessage = document.querySelector('.mismatch-message'); // div.mismatch-message
+        let elStrongPasswordMessage = document.querySelector('.strongPassword-message'); // div.strongPassword-message
+        let elPasswordLabel = document.querySelector('#password-label'); // legend#password-label
+        let elPasswordRetypeLabel = document.querySelector('#password-retype-label'); // legend#password-retype-label
+
+        // 아이디: 글자 수 제한 (4글자 이상, 12글자 이하)
+        function idLength(str) {
+            return str.length >= 4 && str.length <= 12;
+        }
+
+        // 아이디: 영문, 숫자만 허용
+        function onlyNumberAndEnglish(str) {
+            return /^[A-Za-z\d]+$/.test(str);
+        }
+
+        // 비밀번호: 영문, 숫자, 특수문자 조합, 8~16자
+        function strongPassword(str) {
+            return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,16}$/.test(str);
+        }
+
+        // 비밀번호 확인
+        function isMatch(password, passwordRetype) {
+            return password === passwordRetype;
+        }
+
+        // 아이디 중복 확인 함수 (임시로 true 반환)
+        function checkIdAvailability(username) {
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            return users.some(user => user.id === username);
+        }
+
+        // 아이디 입력 시 중복 확인 버튼 상태 업데이트
+        elInputUsername.addEventListener('input', function () {
+            let username = elInputUsername.value;
+
+            if (username.length > 0) {
+                if (idLength(username) && onlyNumberAndEnglish(username)) {
+                    elCheckDuplicateButton.classList.remove('unavailable', 'available');
+                    elCheckDuplicateButton.textContent = '중복확인';
+                    elInputUsername.placeholder = '예) dugout'; // Placeholder 초기화
+                    document.querySelector('.username-message').style.opacity = 0; // 에러 메시지 숨김
+                } 
+            } else {
+                elCheckDuplicateButton.classList.remove('available', 'unavailable');
+                elCheckDuplicateButton.textContent = '중복확인';
+                elInputUsername.placeholder = '예) dugout'; // Placeholder 초기화
+                elInputUsername.classList.remove('error'); // 에러 클래스 제거
+                document.querySelector('.form-label').classList.remove('error'); // 에러 클래스 제거
+                document.querySelector('.username-message').style.opacity = 0; // 메시지 숨김
+            }
+        });
+
+        // 중복 확인 버튼 클릭 이벤트
+        elCheckDuplicateButton.addEventListener('click', function () {
+            let username = elInputUsername.value;
+            if (username.length > 0) {
+                if (checkIdAvailability(username)) {
+                    elCheckDuplicateButton.classList.remove('available');
+                    elCheckDuplicateButton.classList.add('unavailable');
+                    elCheckDuplicateButton.textContent = '재확인';
+                    // 아이디가 중복될 때 스타일 적용
+                    elInputUsername.classList.add('error');
+                    document.querySelector('.form-label').classList.add('error');
+
+                    // Placeholder에 에러 메시지 추가
+                    elInputUsername.placeholder = ''; // Placeholder 내용 제거
+                    document.querySelector('.username-message').style.opacity = 1; // 메시지 표시
+                } else {
+                    elCheckDuplicateButton.classList.remove('unavailable');
+                    elCheckDuplicateButton.classList.add('available');
+                    elCheckDuplicateButton.textContent = '사용가능';
+                    // 아이디가 중복되지 않을 때 스타일 제거
+                    elInputUsername.classList.remove('error');
+                    document.querySelector('.form-label').classList.remove('error');
+                    elInputUsername.placeholder = ''; // Placeholder 초기화
+                    document.querySelector('.username-message').style.opacity = 0; // 메시지 숨김
+                }
+            }
+        });
+
+        // 비밀번호 이벤트
+        elInputPassword.addEventListener('keyup', function () {
+            if (elInputPassword.value.length !== 0) {
+                if (strongPassword(elInputPassword.value)) {
+                    elStrongPasswordMessage.classList.add('hide');
+                    elInputPassword.classList.remove('error');
+                    elPasswordLabel.classList.remove('error');
+                } else {
+                    elStrongPasswordMessage.classList.remove('hide');
+                    elInputPassword.classList.add('error');
+                    elPasswordLabel.classList.add('error');
+                }
+            } else {
+                elStrongPasswordMessage.classList.add('hide');
+                elInputPassword.classList.remove('error');
+                elPasswordLabel.classList.remove('error');
+            }
+        });
+
+        // 비밀번호 확인 이벤트
+        elInputPasswordRetype.addEventListener('keyup', function () {
+            if (elInputPasswordRetype.value.length !== 0) {
+                if (isMatch(elInputPassword.value, elInputPasswordRetype.value)) {
+                    elMismatchMessage.classList.add('hide');
+                    elInputPasswordRetype.classList.remove('error');
+                    elPasswordRetypeLabel.classList.remove('error');
+                } else {
+                    elMismatchMessage.classList.remove('hide');
+                    elInputPasswordRetype.classList.add('error');
+                    elPasswordRetypeLabel.classList.add('error');
+                }
+            } else {
+                elMismatchMessage.classList.add('hide');
+                elInputPasswordRetype.classList.remove('error');
+                elPasswordRetypeLabel.classList.remove('error');
+            }
+        });
+
+        // 회원가입 버튼 클릭 이벤트
+        document.querySelector('.btnMember').addEventListener('click', function(event) {
+            event.preventDefault(); // 폼의 기본 제출 동작을 막기
+
+            // 입력 값 가져오기
+            let username = elInputUsername.value;
+            let password = elInputPassword.value;
+            let name = document.querySelector('#inputName').value;
+            let phone = document.querySelector('#inputPhone').value;
+            let address = document.querySelector('#inputAddress').value;
+
+            // 유효성 검사 통과 여부 확인
+            if (
+                idLength(username) &&
+                onlyNumberAndEnglish(username) &&
+                strongPassword(password) &&
+                isMatch(password, elInputPasswordRetype.value)
+            ) {
+                // 유효성 검사를 모두 통과하면, 사용자 정보를 로컬스토리지에 저장
+                let users = JSON.parse(localStorage.getItem('users')) || [];
+
+                users.push({
+                    id: username,
+                    password: password,
+                    name: name,
+                    phone: phone,
+                    address: address
+                });
+
+                localStorage.setItem('users', JSON.stringify(users));
+
+                // 성공 메시지 표시 (예: 알림창)
+                alert("회원가입이 완료되었습니다!");
+
+                // 폼 초기화
+                document.querySelector('form').reset();
+
+                // 버튼 초기화
+                elCheckDuplicateButton.classList.remove('available', 'unavailable');
+                elCheckDuplicateButton.textContent = '중복확인';
+                elStrongPasswordMessage.classList.add('hide');
+                elMismatchMessage.classList.add('hide');
+                elPasswordLabel.classList.remove('error');
+                elPasswordRetypeLabel.classList.remove('error');
+                document.querySelector('.form-label').classList.remove('error'); // 라벨 에러 클래스 제거
+                elInputUsername.classList.remove('error'); // 아이디 입력 필드 에러 클래스 제거
+                elInputUsername.placeholder = '예) dugout'; // Placeholder 초기화
+                document.querySelector('.username-message').style.opacity = 0; // 메시지 숨김
+            } else {
+                // 유효성 검사 실패 시 메시지 표시
+                alert("입력한 정보를 확인해 주세요.");
+            }
         });
     </script>
 </body>
