@@ -9,7 +9,7 @@
 <body>
 	<div class="logo-grid-container">
         <div class="logo-grid">
-            <div class="logo-item">
+            <div class="logo-item" id="all">
                 <img src="../common/image/teamLogo/kboTeamLogo.png" alt="ALL Logo">
                 <p>ALL</p>
             </div>
@@ -72,6 +72,9 @@
     	});
 
         $(document).ready(function(){
+            $("#all").click(function(){
+                $("article.product").load("Product.html");
+            });
             $("#dusan").click(function(){
                 $("article.product").load("DusanDetail.html");
             });
