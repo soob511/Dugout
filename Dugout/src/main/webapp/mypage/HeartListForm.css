@@ -6,10 +6,10 @@
 .heart-list-section {
     border-bottom: 1px solid black;
     overflow: hidden;
-    height: 228px;
+    height: 148px;
 }
 .heart-title {
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 600;
 }
 .heart-list{
@@ -24,6 +24,7 @@
     background-color: #000;
     color: #fff;
     margin-top: 24px;
+    margin-right: 24px;
 }
 .heart-title-box {
     border: none;
@@ -33,32 +34,32 @@
 }
 .heart-img{
     float: left;
-    width: 164px;
-    height: 172px;
+    width: 100px;
+    height: 100px;
     margin-right: 28px;
     margin-bottom: 28px;
 }
 .heart-info {
     float: left;
     width: 600px;
-    margin-top: 48px;
+    margin-top: 20px;
 }
 .heart-btns {
     float: right;
     width: 184px;
-    margin-top: 32px;
+    margin-top: 5px;
+    font-size: 12px;
 }
 .btn-to-cart {
-    width: 184px;
-    height: 40px;
+    width: 160px;
+    height: 32px;
     margin-bottom: 15px;
     background-color: #fff;
-    font-weight: 600;
+    border : 1px solid black ;
 }
 .btn-heart-delete{
-	width: 184px;
-    height: 40px;
+	width: 160px;
+    height: 32px;
     background-color: #333333;
-    font-weight: 600;
     color: #fff;
 }
