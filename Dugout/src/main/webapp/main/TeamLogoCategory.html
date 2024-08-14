@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="TeamLogoCategory.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 	<div class="logo-grid-container">
         <div class="logo-grid">
-            <div class="logo-item">
+            <div class="logo-item" id="all">
                 <img src="../common/image/teamLogo/kboTeamLogo.png" alt="ALL Logo">
                 <p>ALL</p>
             </div>
@@ -32,7 +33,7 @@
                 <img src="../common/image/teamLogo/ncTeamLogo.png" alt="NC Dinos Logo">
                 <p>엔씨 다이노스</p>
             </div>
-            <div class="logo-item">
+            <div class="logo-item" id="dusan">
                 <img src="../common/image/teamLogo/doosanTeamLogo.png" alt="Doosan Bears Logo">
                 <p>두산 베어스</p>
             </div>
@@ -69,6 +70,15 @@
             	this.classList.remove('dimmed');
         	});
     	});
+
+        $(document).ready(function(){
+            $("#all").click(function(){
+                $("article.product").load("Product.html");
+            });
+            $("#dusan").click(function(){
+                $("article.product").load("DusanDetail.html");
+            });
+        })
 	</script>
 </body>
 </html>
