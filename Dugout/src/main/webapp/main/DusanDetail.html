@@ -17,12 +17,13 @@
         margin: 8px 0 ;         
         padding: 0px 65px 0px 0px; 
 }
-span {
-    font-size:27px;
-    padding: 0px 25px 0px 0px;
+.product-count span {
+    font-size:18px;
+    padding-right: 8px;
     color: black;       
 }
-.product.count {
+.product-count {
+	font-size:12px;
     margin: 8px 0;        
     padding: 0px 60px 0px 0px; 
     color: gray;
@@ -97,40 +98,39 @@ form{
 .hide-section{
     visibility: hidden
 }
+.section-top{
+    padding : 0 80px;
+}
 </style>
 </head>
 <body>
 <main id="recomm-main">
-    <section>
-    <div class="d-flex justify-content-center">	   
-    <div >
-        <div class="row">
-        <div class=" col-6">  	        
-            <p class="product count"><span>4</span>개의 상품 검색</p>
-        </div>	 
-        <div class=" col-2">  	               
+    <section class="d-flex justify-content-between align-items-center section-top">
+        <div>
+            <p class="product-count"><span>4</span>개의 상품 검색</p>
+        </div>
+        <div class="d-flex">
+            <div class="me-3">
                 <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            상품정렬
+                    상품정렬
                 </button>
                 <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>가격 높은 순</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>가격 낮은 순</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>많이 팔린 순</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>인기 순</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>최신 순</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>가격 높은 순</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>가격 낮은 순</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>많이 팔린 순</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>인기 순</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>최신 순</a></li>
                 </ul>
-        </div>	    
-        <div class="col-4">
-            <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="" aria-label="Search">
-                <button class="search-btn" type="submit">
-                    <i class="bi bi-search"></i>
-                </button>
-            </form>
+            </div>
+            <div>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="" aria-label="Search">
+                    <button class="search-btn" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </form>
+            </div>
         </div>
-        </div>
-    </div>
-    </div>
     </section>
     <section>
     <div class="d-flex justify-content-center">
