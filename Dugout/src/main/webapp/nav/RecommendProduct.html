@@ -9,9 +9,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <style>  
+<style>
 .row{
-    width: 950px;     
+    width: 950px;  
 }
 .col-6 {
         margin: 8px 0 ;         
@@ -98,7 +98,8 @@ form{
 </head>
 <body>
     <header></header>
-<main>
+    <hr>
+<main id="recomm-main">
     <section>
     <div class="d-flex justify-content-center">	   
     <div >
@@ -151,30 +152,30 @@ form{
             </div>
         </div>
         <div class="card" style="width:200px">
-        <a href="../productDetails/PoductDetails.html"><img class="card-img-top" src="../common/image/product/[KBO] 2024 KBO 공인구(케이스 미포함).jpg"height="150"></a>                
+        <a href="../productDetails/PoductDetails.html"><img class="card-img-top" src="../common/image/product/이글스 스케치 부채.jpg"height="150"></a>                
             <i class="bi bi-heart"></i>
             <div class="card-body">
-            <p class="card-title">[KBO] 2024 KBO 공인구(케이스 미포함)</p>
-            <p class="card-text">기념상품</p>
-            <p class="card-text2">17,000원</p>
+            <p class="card-title">[한화이글스] 이글스 스케치 부채</p>
+            <p class="card-text">기타</p>
+            <p class="card-text2">9,900원</p>
             </div>
         </div>
         <div class="card" style="width:200px">
-        <a href="../productDetails/PoductDetails.html"><img class="card-img-top" src="../common/image/product/[KT위즈] 레플리카 홈 유니폼.jpg" height="150"></a>                
+        <a href="../productDetails/PoductDetails.html"><img class="card-img-top" src="../common/image/product/[KBO] 2024 KBO 올스타전 크뱅기 기념구.jpg" height="150"></a>                
             <i class="bi bi-heart"></i>
             <div class="card-body">
-            <p class="card-title">[KT위즈] 레플리카 홈 유니폼</p>
-            <p class="card-text">유니폼</p>
-            <p class="card-text2">65,000원</p>
+            <p class="card-title">[KBO] 2024 KBO 올스타전 크뱅기 기념구</p>
+            <p class="card-text">기념상품</p>
+            <p class="card-text2">12,000원</p>
             </div>
         </div>         
     </div>
     <div class="d-flex justify-content-center">
         <div class="card" style="width:200px  ;">
-        <a href="../productDetails/PoductDetails.html"><img class="card-img-top" src="../common/image/product/[KBO] 2024 KBO 올스타전 마스킹테이프.jpg" height="150"></a>               
+        <a href="../productDetails/PoductDetails.html"><img class="card-img-top" src="../common/image/product/[국가대표] 패턴 리본머리띠 (BLUE).jpg" height="150"></a>               
             <i class="bi bi-heart"></i>
             <div class="card-body">
-            <p class="card-title">[KBO] 2024 KBO 올스타전 마스킹테이프</p>
+            <p class="card-title">[국가대표] 패턴 리본머리띠 (BLUE)</p>
             <p class="card-text">기념상품</p>
             <p class="card-text2">4,000원</p>
             </div>
@@ -209,12 +210,12 @@ form{
     </div>
     <div class="d-flex justify-content-center">
         <div class="card" style="width:200px  ;">
-        <a href="../productDetails/PoductDetails.html"><img class="card-img-top" src="../common/image/product/[KIA타이거즈] 마킹키트 (홈) (개별판매용).jpg" height="150"></a>               
+        <a href="../productDetails/PoductDetails.html"><img class="card-img-top" src="../common/image/product/[국가대표] 야구대표팀 반팔바람막이.jpg" height="150"></a>               
         <i class="bi bi-heart"></i>
             <div class="card-body">
-            <p class="card-title">[KIA타이거즈] 마킹키트 (홈) (개별판매용)</p>
+            <p class="card-title">[국가대표] 야구대표팀 반팔바람막이</p>
             <p class="card-text">기타</p>
-            <p class="card-text2">25,000원</p>
+            <p class="card-text2">135,000원</p>
             </div>
         </div>
         <div class="card" style="width:200px">
@@ -281,7 +282,6 @@ $(document).ready(function () {
     });
 });
 function initializeHeader() {
-    var loginSuccess = localStorage.getItem("login");
     $('.cart').css({
     'top': '-2px', 
     'left': '240px'    
