@@ -1,71 +1,72 @@
-@font-face {
-    font-family: "Pretendard-Regular";
-    src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
-      format("woff");
-    font-weight: 400;
-    font-style: normal;
-}
-
 body {
-    font-family: "Pretendard-Regular";
-    margin: 20px;
+	font-family: "Pretendard-Regular";
 }
 
-hr {
-    border: 2px solid black;
+.product-insert-title {
+	display: block;
+	color: #333;
+	font-size: 26px;
+	margin-bottom: 24px;
+	font-weight: bold;
+}
+
+.product-insert-box {
+	width: 1140px;
+	border-bottom: 3px solid #000;
+}
+
+.contain {
+	width: 100%;
 }
 
 .banner-management-header {
-    font-size:30px;
-    font-weight: bold;
-    margin-bottom: 20px;
+	font-size: 30px;
+	font-weight: bold;
+	margin-bottom: 20px;
 }
 
 .banner-group {
-    display: flex;
-    align-items: center;
-    margin-bottom: 40px;
-    margin-top: 40px;
-    width: 70%; 
-    max-width: 600px; 
+	display: flex;
+	align-items: center;
+	margin-bottom: 40px;
+	margin-top: 40px;
+	width: 800px;
 }
 
 .banner-group label {
-    width: 150px;
-    font-size: 18px;
-    font-weight: bold;
-    margin-right: 10px;
+	width: 150px;
+	font-size: 18px;
+	font-weight: bold;
+	margin-right: 10px;
 }
 
 .banner-group input {
-    flex: 1;
+	flex: 1;
 }
 
 .action-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 20px; 
-    margin-top: 150px;
-    width: 70%;
-    max-width: 600px; 
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 20px;
+	margin-top: 150px;
 }
 
 .action-buttons button {
-    padding: 10px 20px;
-    font-size: 18px;
-    border: none;
-    cursor: pointer;
+	padding: 10px 20px;
+	font-size: 18px;
+	border: none;
+	cursor: pointer;
 }
 
 .preview-button {
-    background-color: white;
-    border: 1px solid black !important;
-    width: 100%;
+	background-color: white;
+	border: 1px solid black !important;
+	width: 800px;
 }
 
 .save-button {
-    background-color: black;
-    color: white;
-    width: 100%;
+	background-color: black;
+	color: white;
+	width: 800px;
 }
