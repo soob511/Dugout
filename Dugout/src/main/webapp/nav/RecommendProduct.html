@@ -98,7 +98,7 @@ form{
 </head>
 <body>
     <header></header>
-    <hr>
+    <nav></nav>
 <main id="recomm-main">
     <section>
     <div class="d-flex justify-content-center">	   
@@ -278,7 +278,7 @@ $(document).ready(function () {
     $("header").load("../main/Header.html", function() {
         initializeHeader();
     });
-    
+    $("nav").load("../main/Nav.html")
     $("footer").load("../main/Footer.html", function() {
         initializeFooter();
     });
