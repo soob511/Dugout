@@ -100,7 +100,18 @@
         .section-top{
           padding : 0 80px;
         }
-                           
+        .page-link{
+          border: none;
+          color:gray;
+        }
+        .pagination .page-link {
+        color: gray;
+        cursor: pointer; 
+        }
+        .pagination .page-item.active .page-link {
+        color: black; 
+        background-color : white ;
+        }                                      
     </style>
 </head>
 	<body>
@@ -309,15 +320,22 @@
       
       <nav aria-label="..." class="d-flex justify-content-center">
             <ul class="pagination pagination-sm">
-                <li class="page-item active" aria-current="page">
-                          <span class="page-link">1</span>
-                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
            </ul>
-     </nav>
-      
+     </nav>      
+     
       <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const paginationItems = document.querySelectorAll('.pagination .page-item');
+        paginationItems.forEach(item => {
+          item.addEventListener('click', function() {              
+            paginationItems.forEach(i => i.classList.remove('active'));             
+            this.classList.add('active');
+            });
+        });
+    });
     var i = 0;
     $('.bi-heart').on('click',function(){
         if(i==0){
