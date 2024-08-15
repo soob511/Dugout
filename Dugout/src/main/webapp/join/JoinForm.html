@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="JoinForm.css">
 </head>
 <body>
-    <header id="header"></header>
+    <header></header>
     <hr>
     <main id="member-form">
         <section class="title">
@@ -60,7 +60,12 @@
             </fieldset>          
         </form>
     </main>
+        <footer></footer>
     <script>
+        $(document).ready(function () {
+	        $("footer").load("../main/Footer.html");
+	        $("header").load("../main/Header.html");
+        });
         let elInputUsername = document.querySelector('#username'); 
         let elCheckDuplicateButton = document.querySelector('#check-duplicate'); 
         let elInputPassword = document.querySelector('#password'); 

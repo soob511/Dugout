@@ -27,9 +27,9 @@
 					<div class="box">
 					<span id="product-name">[KIA타이거즈] 마킹키트 (홈) (개별판매용)</span>	<br>						
 					<span id="product-price">25,000원</span><br>	
-					<button type="button" class="btn btn-light">+</button>
-					<button type="button" class="btn btn-light">1</button>
-					<button type="button" class="btn btn-light">-</button>	
+					<button type="button" class="btn btn-light minus">-</button>
+					<button type="button" class="btn btn-light cnt">1</button>
+					<button type="button" class="btn btn-light plus">+</button>	
 					</div>			
 				</div>
 				
@@ -40,9 +40,9 @@
 					<div class="box">
 					<span id="product-name">[삼성라이온즈] 레플리카 원정 유니폼</span>	<br>						
 					<span id="product-price">79,000원</span><br>	
-					<button type="button" class="btn btn-light">+</button>
-					<button type="button" class="btn btn-light">1</button>
-					<button type="button" class="btn btn-light">-</button>	
+					<button type="button" class="btn btn-light minus">-</button>
+					<button type="button" class="btn btn-light cnt">1</button>
+					<button type="button" class="btn btn-light plus">+</button>	
 					</div>			
 				</div>
 				<div class="cart-list">
@@ -52,9 +52,9 @@
 					<div class="box">
 					<span id="product-name">[한화이글스]블랙 에어포스 레플리카 유니폼</span>	<br>						
 					<span id="product-price">65,000원</span><br>	
-					<button type="button" class="btn btn-light">+</button>
-					<button type="button" class="btn btn-light">1</button>
-					<button type="button" class="btn btn-light">-</button>	
+					<button type="button" class="btn btn-light minus">-</button>
+					<button type="button" class="btn btn-light cnt">1</button>
+					<button type="button" class="btn btn-light plus">+</button>	
 					</div>			
 				</div>
 				
@@ -65,9 +65,9 @@
 					<div class="box">
 					<span id="product-name">[두산베어스] 오리지널 벨크로 캡</span>	<br>						
 					<span id="product-price">25,000원</span><br>	
-					<button type="button" class="btn btn-light">+</button>
-					<button type="button" class="btn btn-light">1</button>
-					<button type="button" class="btn btn-light">-</button>	
+					<button type="button" class="btn btn-light minus">-</button>
+					<button type="button" class="btn btn-light cnt">1</button>
+					<button type="button" class="btn btn-light plus">+</button>	
 					</div>			
 				</div>
 					<hr>
@@ -103,20 +103,32 @@
 		</aside>
 	</main>
 	<footer></footer>
-	<script>
-	$(document).ready(function(){
-		$("#pay-all").click(function(){
-				location.href ="../payment/Payment.html";
-			})
-		$("#pay-select").click(function(){
-				location.href ="../payment/Payment.html";
-		})
+<script>
+$(document).ready(function(){
+$("#pay-all").click(function(){
+		location.href ="../payment/Payment.html";
 	})
-	$(document).ready(function () {
-               $("footer").load("../main/Footer.html");
-			   $("header").load("../main/Header.html");
-            
-	}); 
+$("#pay-select").click(function(){
+		location.href ="../payment/Payment.html";
+})
+})
+$(document).ready(function () {
+	$("footer").load("../main/Footer.html");
+	$("header").load("../main/Header.html");
+
+	$(".plus").click(function(){
+		let productPlus = $(this).prev(".cnt");
+		let cartCount = parseInt(productPlus.text());
+		productPlus.text(cartCount + 1); 
+	})
+	$(".minus").click(function(){
+		let productMinus = $(this).next(".cnt");
+		let cartCount = parseInt(productMinus.text());
+	if (cartCount > 1) {
+		productMinus.text(cartCount - 1);
+	}
+	});	
+}); 
 	</script>
 </body>
 </html>
