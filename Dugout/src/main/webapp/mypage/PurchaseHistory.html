@@ -14,7 +14,7 @@
 				<h2 class="product-insert-title">구매 내역</h2>
 		</div>
         <div class="purchase-period-buttons">
-            <button class="recent6-month-btn">최신 6개월</button>
+            <button class="recent6-month-btn active">최신 6개월</button>
             <button class="recent1-year-btn">최신 1년</button>
         </div>
         <div class="purchase-item">
@@ -50,5 +50,13 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+            $(".purchase-period-buttons button").on("click", function () {
+                $(".purchase-period-buttons button").removeClass("active");
+                $(this).addClass("active");
+            });
+        });
+      </script>
 </body>
 </html>
