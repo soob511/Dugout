@@ -103,15 +103,12 @@
         }
         .page-link{
           border: none !important;
-          color:gray;
-        }
-        .pagination .page-link {
-        color: gray;
-        cursor: pointer; 
-        }
-        .pagination .page-item.active .page-link {
-        color: black; 
-        background-color : white ;
+          color:gray !important;
+          cursor: pointer !important;
+        }       
+        .pagination .page-item.active .page-link{
+          color:black !important;
+          background-color : white !important;
         }                                      
     </style>
 </head>
@@ -320,16 +317,16 @@
       </div>
       
       <nav aria-label="..." class="d-flex justify-content-center">
-            <ul class="pagination pagination-sm">
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link">1</a></li>
+                <li class="page-item"><a class="page-link">2</a></li>
+                <li class="page-item"><a class="page-link">3</a></li>
            </ul>
      </nav>      
 
       <script>
         document.addEventListener('DOMContentLoaded', function() {
-        const paginationItems = document.querySelectorAll('.pagination .page-item');
+        const paginationItems = document.querySelectorAll('.pagination .page-item ');
         paginationItems.forEach(item => {
           item.addEventListener('click', function() {              
             paginationItems.forEach(i => i.classList.remove('active'));             
