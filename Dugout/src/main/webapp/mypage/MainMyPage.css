@@ -9,6 +9,7 @@ header, footer {
 
 .main-container {
     display: flex;
+    
 }
 
 .container.mt-5 {
@@ -16,6 +17,7 @@ header, footer {
 }
 
 .menu-section {
+    min-width: 180px;
     padding: 20px;
     margin-left: 160px;
 }
