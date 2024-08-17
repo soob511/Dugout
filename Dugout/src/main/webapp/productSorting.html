@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<!-- 방법1 -->
+	
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+	   
+	<!-- 방법2 -->
+	<link href="common/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<script src="common/bootstrap/bootstrap.min.js.map"></script> 
+	<script src="common/bootstrap/jquery.min.js.map"></script> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	 <style>
+	 
+	    .row{
+          width: 950px;     
+        }
+	    .col-6 {
+             margin: 8px 0 ;         /* 위아래 20px, 좌우 0px */
+        	 padding: 0px 65px 0px 0px; /* 왼쪽 패딩 0px, 오른쪽 패딩 20px */
+        }
+       
+        span {
+          font-size:27px;
+          bold ;
+          padding: 0px 25px 0px 0px;
+          color: black;
+       
+        }
+       .product.count {
+             margin: 8px 0;         /* 위아래 20px, 좌우 0px */
+             padding: 0px 60px 0px 0px; /* 왼쪽 패딩 0px, 오른쪽 패딩 20px */
+             color: gray;
+        }
+        .col-2{
+             margin: 9px 0px;        
+        }
+        .col-4{
+              margin: 8px 0px; 
+        }
+       
+        .btn {
+            border-color: black;
+            background-color: white;
+            color: black;
+        }
+        .search-btn{
+            border: none;  
+            background-color: white;
+        }
+             
+        .dropdown-menu {
+            background-color: #e2e2e1;
+        }
+       
+        form{
+           border: 1px solid black; /* 테두리 색상 및 두께 설정 */
+           border-radius: 5px; /* 테두리 모서리 둥글기 설정 */
+           padding: 1px; /* 테두리와 내용 사이의 여백 */
+        }
+        .form-control.me-2{
+           border: none;        
+        }
+               
+        .card {
+            border: none;          
+            margin : 20px;
+        }
+        
+        .card-title {
+            bold ; 
+        }
+        
+        .card-text {  
+          margin: 0px 0px 8px 0px;
+          font-size:10px ;         
+          color: gray ;       
+        }
+        
+        .card-text2 {   
+          bold ;                       
+        }
+        .card-img-top {
+          width: 100%;
+          height: 200px;
+        
+        }
+        .bi-heart {
+          position: absolute;
+          top: 170px; /* 카드 상단에서 10px 떨어지게 배치 */
+          right: 10px; /* 카드 오른쪽에서 10px 떨어지게 배치 */
+          
+          font-size: 24px; /* 아이콘 크기 */
+          cursor: pointer; /* 클릭할 수 있다는 표시 */
+          z-index: 10; /* 아이콘이 이미지 위에 표시되도록 */
+        }
+         
+        .bi-heart-fill{       
+           position: absolute;
+           top: 170px; /* 카드 상단에서 10px 떨어지게 배치 */
+           right: 10px; /* 카드 오른쪽에서 10px 떨어지게 배치 */
+           color : #ff0004 ;
+          
+           font-size: 24px; /* 아이콘 크기 */
+           cursor: pointer; /* 클릭할 수 있다는 표시 */
+           z-index: 10; /* 아이콘이 이미지 위에 표시되도록 */                
+        }
+                           
+    </style>
+</head>
+	<body>
+	   
+	   
+ <div class="d-flex justify-content-center">	   
+   <div >
+	   
+	  <div class="row">
+        <div class=" col-6">  	        
+          <p class="product count"><span>200</span>개의 상품 검색</p>
+        </div>	 
+       
+        <div class=" col-2">  	               
+    	 		<button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            	         상품정렬
+   			    </button>
+   	   	    
+   			    <ul class="dropdown-menu">
+     				 <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>가격 높은 순</a></li>
+     				 <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>가격 낮은 순</a></li>
+     				 <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>많이 팔린 순</a></li>
+     				 <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>인기 순</a></li>
+     				 <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>최신 순</a></li>
+    			</ul>
+   		</div>	    
+   		
+   			    
+        <div class="col-4">
+           <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="" aria-label="Search">
+              <button class="search-btn" type="submit">
+                   <i class="bi bi-search"></i>
+             </button>
+           </form>
+       </div>
+	   </div>
+	</div>
+ </div>
+	
+	
+	
+	   <div class="d-flex justify-content-center">
+         <div class="card" style="width:200px  ;">           
+              <img class="card-img-top" src="common/image/photos/국가대표 1.png" height="150">
+                <i class="bi bi-heart"></i>
+              <div class="card-body">
+                <p class="card-title">유니폼</p>
+                <p class="card-text">기념상품</p>
+                <p class="card-text2">12,000원</p>                  
+              </div>				
+         </div>
+         
+         <div class="card" style="width:200px">
+              <img class="card-img-top" src="common/image/photos/국가대표 1.png" height="150">
+                <i class="bi bi-heart"></i>
+              <div class="card-body">
+                <p class="card-title">유니폼</p>
+                <p class="card-text">기념상품</p>
+                <p class="card-text2">12,000원</p>              
+              </div>
+         </div>
+         
+         <div class="card" style="width:200px">
+              <img class="card-img-top" src="common/image/photos/국가대표 1.png" height="150"> 
+                <i class="bi bi-heart"></i>
+              <div class="card-body">
+               <p class="card-title">유니폼</p>
+                <p class="card-text">기념상품</p>
+                <p class="card-text2">12,000원</p>
+              </div>
+         </div>
+         
+         <div class="card" style="width:200px">
+              <img class="card-img-top" src="common/image/photos/국가대표 1.png" height="150">
+                <i class="bi bi-heart"></i>
+              <div class="card-body">
+                <p class="card-title">유니폼</p>
+                <p class="card-text">기념상품</p>
+                <p class="card-text2">12,000원</p>
+              </div>
+         </div>         
+      </div>
+      
+              
+     
+       <div class="d-flex justify-content-center">
+         <div class="card" style="width:200px  ;">
+              <img class="card-img-top" src="common/image/photos/국가대표 2.png" height="150">
+               <i class="bi bi-heart"></i>
+              <div class="card-body">
+                <p class="card-title">유니폼</p>
+                <p class="card-text">기념상품</p>
+                <p class="card-text2">12000원</p>
+              </div>
+         </div>
+         
+         <div class="card" style="width:200px">
+              <img class="card-img-top" src="common/image/photos/국가대표 2.png" height="150">
+               <i class="bi bi-heart"></i>
+              <div class="card-body">
+                <p class="card-title">유니폼</p>
+                <p class="card-text">기념상품</p>
+                <p class="card-text2">12000원</p>
+              </div>
+         </div>
+         
+         <div class="card" style="width:200px">
+              <img class="card-img-top" src="common/image/photos/국가대표 2.png" height="150">
+               <i class="bi bi-heart"></i>
+              <div class="card-body">
+                <p class="card-title">유니폼</p>
+                <p class="card-text">기념상품</p>
+                <p class="card-text2">12000원</p>
+              </div>
+         </div>
+         
+         <div class="card" style="width:200px">
+              <img class="card-img-top" src="common/image/photos/국가대표 2.png" height="150">
+               <i class="bi bi-heart"></i>
+              <div class="card-body">
+                <p class="card-title">유니폼</p>
+                <p class="card-text">기념상품</p>
+                <p class="card-text2">12000원</p>
+              </div>
+         </div>
+      </div>
+      
+      
+            
+         
+       <div class="d-flex justify-content-center">
+         <div class="card" style="width:200px  ;">
+              <img class="card-img-top" src="common/image/photos/국가대표 3.png"  height="150">
+               <i class="bi bi-heart"></i>
+              <div class="card-body">
+                <p class="card-title">유니폼</p>
+                <p class="card-text">기념상품</p>
+                <p class="card-text2">12000원</p>
+              </div>
+         </div>
+         
+         <div class="card" style="width:200px">
+              <img class="card-img-top" src="common/image/photos/국가대표 3.png" height="150">
+               <i class="bi bi-heart"></i>
+              <div class="card-body">
+                <p class="card-title">유니폼</p>
+                <p class="card-text">기념상품</p>
+                <p class="card-text2">12000원</p>
+              </div>
+         </div>
+         
+         <div class="card" style="width:200px">
+              <img class="card-img-top" src="common/image/photos/국가대표 3.png" height="150">
+               <i class="bi bi-heart"></i>
+              <div class="card-body">
+                <p class="card-title">유니폼</p>
+                <p class="card-text">기념상품</p>
+                <p class="card-text2">12000원</p>
+              </div>
+         </div>
+         
+         <div class="card" style="width:200px">
+              <img class="card-img-top" src="common/image/photos/국가대표 3.png" height="150">
+               <i class="bi bi-heart"></i>
+              <div class="card-body">
+                <p class="card-title">유니폼</p>
+                <p class="card-text">기념상품</p>
+                <p class="card-text2">12000원</p>
+              </div>
+         </div>
+      </div>
+	 
+	 
+	 
+	 <div class="d-flex justify-content-center">
+         <div class="card" style="width:200px  ;">
+              <img class="card-img-top" src="common/image/photos/국가대표 4.png" height="150">
+               <i class="bi bi-heart"></i>
+              <div class="card-body">
+                <p class="card-title">유니폼</p>
+                <p class="card-text">기념상품</p>
+                <p class="card-text2">12000원</p>
+              </div>
+         </div>
+         
+         <div class="card" style="width:200px">
+              <img class="card-img-top" src="common/image/photos/국가대표 4.png" height="150">
+               <i class="bi bi-heart"></i>
+              <div class="card-body">
+                <p class="card-title">유니폼</p>
+                <p class="card-text">기념상품</p>
+                <p class="card-text2">12000원</p>
+              </div>
+         </div>
+         
+         <div class="card" style="width:200px">
+              <img class="card-img-top" src="common/image/photos/국가대표 4.png" height="150">
+               <i class="bi bi-heart"></i>
+              <div class="card-body">
+                <p class="card-title">유니폼</p>
+                <p class="card-text">기념상품</p>
+                <p class="card-text2">12000원</p>
+              </div>
+         </div>
+         
+         <div class="card" style="width:200px">
+              <img class="card-img-top" src="common/image/photos/국가대표 4.png" height="150">
+               <i class="bi bi-heart"></i>
+              <div class="card-body">
+                <p class="card-title">유니폼</p>
+                <p class="card-text">기념상품</p>
+                <p class="card-text2">12000원</p>
+              </div>
+         </div>
+      </div>
+      
+      <nav aria-label="..." class="d-flex justify-content-center">
+            <ul class="pagination pagination-sm">
+                <li class="page-item active" aria-current="page">
+                          <span class="page-link">1</span>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+           </ul>
+     </nav>
+      
+      <script>
+    var i = 0;
+    $('.bi-heart').on('click',function(){
+        if(i==0){
+            $(this).removeClass('bi-heart');
+            $(this).addClass('bi-heart-fill');
+            i++;
+        }else if(i==1){
+            $(this).removeClass('bi-heart-fill');
+            $(this).addClass('bi-heart');
+            i--;
+        }
+        
+    });
+    
+
+     </script>
+      	 
+	</body>
+</html>
