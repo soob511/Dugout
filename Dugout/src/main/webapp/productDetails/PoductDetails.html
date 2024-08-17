@@ -65,11 +65,24 @@
         </div>
         <footer id="main-footer"></footer>
     </div>
-    <script>
-        $(document).ready(function () {
-            $("#main-header").load("../main/Header.html");
-            $("#main-footer").load("../main/Footer.html");
-        });
-    </script>
+<script>
+    $(document).ready(function () {
+        $("#main-header").load("../main/Header.html");
+        $("#main-footer").load("../main/Footer.html");
+        $(".increase").click(function(){
+            let quantityPlus = $(this).prev(".quantity-input");
+            let productCount = parseInt(quantityPlus.val());
+            quantityPlus.val(productCount + 1);
+            
+        })
+        $(".decrease").click(function(){
+            let quantityMinus = $(this).next(".quantity-input");
+            let productCount = parseInt(quantityMinus.val());
+        if (productCount > 1) {
+            quantityMinus.val(productCount - 1);
+        }
+        });        
+    });
+</script>
 </body>
 </html>
