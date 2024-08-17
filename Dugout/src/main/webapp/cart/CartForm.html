@@ -17,7 +17,7 @@
 		</section>
 		<article>
 			<div class="cart-box">
-				<input class="form-check-input checkbox" type="checkbox" value=""id="flexCheckDefault">
+				<input class="form-check-input checkbox" type="checkbox" value=""id="flexCheckDefault-all">
 				<label class="form-check-label all"for="flexCheckDefault">전체</label>
 				<button type="button" value="삭제" id="btnDelete">삭제</button>
 				<div class="cart-list">
@@ -128,6 +128,15 @@ $(document).ready(function () {
 		productMinus.text(cartCount - 1);
 	}
 	});	
+	 $("#flexCheckDefault-all").on("click", function() {
+		console.log("클릭됨");
+        $(".cart-list .form-check-input").prop("checked", $(this).prop("checked"));
+    });
+
+    $(".cart-list .form-check-input").on("click", function() {
+        let allChecked = $(".cart-list .form-check-input").length === $(".cart-list .form-check-input:checked").length;
+        $("#flexCheckDefault-all").prop("checked", allChecked);
+    });
 }); 
 	</script>
 </body>
