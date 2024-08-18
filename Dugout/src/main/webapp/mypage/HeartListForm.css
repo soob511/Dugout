@@ -1,5 +1,5 @@
 #heartlist-container {
-	width: 800px;
+	width: 1140px;
 	padding: 0;
 	margin-bottom: 200px;
 }
@@ -51,19 +51,19 @@
 
 .heart-info {
 	float: left;
-	width: 400px;
+	width: 600px;
 	margin-top: 20px;
 }
 
 .heart-btns {
 	float: right;
-	width: 180px;
+	width: 184px;
 	margin-top: 5px;
 	font-size: 12px;
 }
 
 .btn-to-cart {
-	width: 150px;
+	width: 160px;
 	height: 32px;
 	margin-bottom: 15px;
 	background-color: #fff;
@@ -71,7 +71,7 @@
 }
 
 .btn-heart-delete {
-	width: 150px;
+	width: 160px;
 	height: 32px;
 	background-color: #333333;
 	color: #fff;
