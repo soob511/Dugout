@@ -74,7 +74,7 @@
 								<option value="판매 중" selected>판매 중</option>
 								<option value="품절">품절</option>
 						</select></td>
-						<td><button class="btn btn-dark">수정하기</button></td>
+						<td><button class="btn btn-dark" onclick="saveData()">수정하기</button></td>
 					</tr>
 
 					<tr>
@@ -117,7 +117,7 @@
 								<option value="판매 중" selected>판매 중</option>
 								<option value="품절">품절</option>
 						</select></td>
-						<td><button class="btn btn-dark">수정하기</button></td>
+						<td><button class="btn btn-dark" onclick="saveData()">수정하기</button></td>
 					</tr>
 
 					<tr>
@@ -159,7 +159,7 @@
 								<option value="판매 중">판매 중</option>
 								<option value="품절" selected>품절</option>
 						</select></td>
-						<td><button class="btn btn-dark">수정하기</button></td>
+						<td><button class="btn btn-dark" onclick="saveData()">수정하기</button></td>
 					</tr>
 
 					<tr>
@@ -201,11 +201,17 @@
 								<option value="판매 중" selected>판매 중</option>
 								<option value="품절">품절</option>
 						</select></td>
-						<td><button class="btn btn-dark">수정하기</button></td>
+						<td><button class="btn btn-dark" onclick="saveData">수정하기</button></td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 	</div>
+	
+	<script>
+	function saveData() {
+	    alert('저장되었습니다');
+	}
+    </script>
 </body>
 </html>
