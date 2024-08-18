@@ -127,11 +127,11 @@ $(document).ready(function () {
     } else {
         $(".login").text("로그인");
     }
-        if (userAdmin === "true") {
-            $("header").load("../management/HeaderManagement.html");
-        } else {
-            $("header").load("Header.html");
-        }
+    if (userAdmin === "true") {
+        $("header").load("../management/HeaderManagement.html");
+    } else {
+        $("header").load("Header.html");
+    }
 });
 </script>
 </body>
