@@ -145,6 +145,9 @@ button{
 	border: 1px solid black;
 	background-color : white; 	
  }
+ .box button {
+    margin: 5px 0; 
+}
 footer{
 	clear: both;
 }
