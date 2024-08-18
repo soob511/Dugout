@@ -45,12 +45,10 @@ body {
 #insertForm select {
     height: 36px;
     border-radius: 8px;
-    padding: 8px;
     margin-right: 10px;
 }
 
 .team-insert-list {
-    margin-left: 10px;
     margin-right: 20px;
     width: 200px;
 }
