@@ -14,154 +14,157 @@
     <link rel="stylesheet" href="JoinForm.css">
 </head>
 <body class="join-body">
-	<header id="main-header"></header>
-	<hr class="join-hr">
-	<main id="member-form">
-		<section class="title">
-			<span class="join">JOIN</span>
-		</section>
-		<form class="row g-3" action="../main/Main.html" method="get">
-			<fieldset class="col-12">
-				<div class="mb-3">
-					<label for="inputId" class="form-label">아이디</label>
-					<input type="text" class="form-control" id="inputId" placeholder="예) dugout" >
-					<button type="button" class="id-check">중복확인</button>
-					<span class="message username-message">이미 존재하는 아이디입니다.</span>
-				</div>
-				<div class="mb-3">
-					<label for="inputPassword" class="form-label">비밀번호</label>
-					<input type="password" class="form-control" id="inputPW" placeholder="영문, 숫자 조합 8 ~ 16자" >
-					<span class="message checkPassword-message">비밀번호 형식이 올바르지 않습니다.</span>
-				</div>
-				<div class="mb-3">
-					<label for="inputPasswordConfirm" class="form-label">비밀번호 확인</label>
-					<input type="password" class="form-control" id="inputPasswordConfirm" placeholder="영문, 숫자 조합 8 ~ 16자" >
-					<span class="message mismatch-message">비밀번호가 일치하지 않습니다.</span>
-				</div>
-				<div class="mb-3">
-					<label for="inputName" class="form-label">이름</label>
-					<input type="text" class="form-control" id="inputName" >
-				</div>
-				<div class="mb-3">
-					<label for="inputPhone" class="form-label">전화번호</label>
-					<input type="text" class="form-control" id="inputPhone" >
-				</div>
-				<div class="mb-3">
-					<label for="inputAddress" class="form-label">주소</label>
-					<input type="text" class="form-control" id="inputAddress">
-				</div>
-				<button type="submit" class="btnMember"  >회원가입</button>
-			</fieldset>
-		</form>
-	</main>
-        <footer></footer>
+    <header id="main-header"></header>
+    <hr class="join-hr">
+    <main id="member-form">
+        <section class="title">
+            <span class="join">회원 가입</span>
+        </section>
+        <form class="row g-3">
+            <fieldset class="col-12">
+                <div class="mb-3 form-group">
+                    <label for="inputId" class="form-label">아이디</label>
+                    <input type="text" class="form-control" id="inputId" placeholder="예) dugout">
+                    <button type="button" class="check-duplicate">중복 확인</button>
+                    <span class="message username-message">이미 존재하는 아이디입니다.</span>
+                </div>
+                <div class="mb-3 form-group">
+                    <label for="inputPassword" class="form-label">비밀번호</label>
+                    <input type="password" class="form-control" id="inputPassword" placeholder="영문, 숫자 조합 8 ~ 16자">
+                    <span class="message strongPassword-message">비밀번호 형식이 올바르지 않습니다.</span>
+                </div>
+                <div class="mb-3 form-group">
+                    <label for="inputPasswordConfirm" class="form-label">비밀번호 확인</label>
+                    <input type="password" class="form-control" id="inputPasswordConfirm" placeholder="비밀번호 확인">
+                    <span class="message mismatch-message">비밀번호가 일치하지 않습니다.</span>
+                </div>
+                <div class="mb-3">
+                    <label for="inputName" class="form-label">이름</label>
+                    <input type="text" class="form-control" id="inputName">
+                </div>
+                <div class="mb-3">
+                    <label for="inputPhone" class="form-label">전화번호</label>
+                    <input type="text" class="form-control" id="inputPhone">
+                </div>
+                <div class="mb-3">
+                    <label for="inputAddress" class="form-label">주소</label>
+                    <input type="text" class="form-control" id="inputAddress">
+                </div>
+                <button type="submit" class="btnMember">회원가입</button>
+            </fieldset>
+        </form>
+    </main>
+    <footer></footer>
+    <script src="../common/jquery/jquery.min.js"></script>
+    <script src="../common/bootstrap/bootstrap.bundle.min.js"></script>
     <script>
         $(document).ready(function () {
-	        $("footer").load("../main/Footer.html");
-	        $("header").load("../main/Header.html");
+            $("footer").load("../main/Footer.html");
+            $("header").load("../main/Header.html");
         });
-        let elInputUsername = document.querySelector('#username'); 
-        let elCheckDuplicateButton = document.querySelector('#check-duplicate'); 
-        let elInputPassword = document.querySelector('#password'); 
-        let elInputPasswordRetype = document.querySelector('#password-retype'); 
-        let elMismatchMessage = document.querySelector('.mismatch-message');
-        let elStrongPasswordMessage = document.querySelector('.strongPassword-message'); 
-        let elPasswordLabel = document.querySelector('#password-label'); 
-        let elPasswordRetypeLabel = document.querySelector('#password-retype-label');
+
+        let InputUsername = document.querySelector('#inputId'); 
+        let CheckDuplicateButton = document.querySelector('.check-duplicate'); 
+        let InputPassword = document.querySelector('#inputPassword'); 
+        let InputPasswordRetype = document.querySelector('#inputPasswordConfirm'); 
+        let MismatchMessage = document.querySelector('.mismatch-message');
+        let StrongPasswordMessage = document.querySelector('.strongPassword-message'); 
+        let PasswordLabel = document.querySelector('label[for="inputPassword"]'); 
+        let PasswordRetypeLabel = document.querySelector('label[for="inputPasswordConfirm"]');
         function idLength(str) {
             return str.length >= 4 && str.length <= 12;
         }
         function onlyNumberAndEnglish(str) {
-            return /^[A-Za-z\d]+$/.test(str);
+            return /^[A-Za-z\d]{8,16}$/.test(str);
         }
         function strongPassword(str) {
             return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,16}$/.test(str);
-        }
+        }  
         function isMatch(password, passwordRetype) {
             return password === passwordRetype;
-        }
+        } 
         function checkIdAvailability(username) {
             let users = JSON.parse(localStorage.getItem('users')) || [];
             return users.some(user => user.id === username);
-        }
-        elInputUsername.addEventListener('input', function () {
-            let username = elInputUsername.value;
+        } 
+        InputUsername.addEventListener('input', function () {
+            let username = InputUsername.value;
             if (username.length > 0) {
                 if (idLength(username) && onlyNumberAndEnglish(username)) {
-                    elCheckDuplicateButton.classList.remove('unavailable', 'available');
-                    elCheckDuplicateButton.textContent = '중복확인';
-                    elInputUsername.placeholder = '예) dugout'; 
+                    CheckDuplicateButton.classList.remove('unavailable', 'available');
+                    CheckDuplicateButton.textContent = '중복 확인';
+                    InputUsername.placeholder = '예) dugout'; 
                     document.querySelector('.username-message').style.opacity = 0; 
                 } 
             } else {
-                elCheckDuplicateButton.classList.remove('available', 'unavailable');
-                elCheckDuplicateButton.textContent = '중복확인';
-                elInputUsername.placeholder = '예) dugout'; 
-                elInputUsername.classList.remove('error'); 
+                CheckDuplicateButton.classList.remove('available', 'unavailable');
+                CheckDuplicateButton.textContent = '중복 확인';
+                InputUsername.placeholder = '예) dugout'; 
+                InputUsername.classList.remove('error'); 
                 document.querySelector('.form-label').classList.remove('error'); 
                 document.querySelector('.username-message').style.opacity = 0; 
             }
-        });
-        elCheckDuplicateButton.addEventListener('click', function () {
-            let username = elInputUsername.value;
+        });      
+        CheckDuplicateButton.addEventListener('click', function () {
+            let username = InputUsername.value;
             if (username.length > 0) {
                 if (checkIdAvailability(username)) {
-                    elCheckDuplicateButton.classList.remove('available');
-                    elCheckDuplicateButton.classList.add('unavailable');
-                    elCheckDuplicateButton.textContent = '재확인';
-                    elInputUsername.classList.add('error');
+                    CheckDuplicateButton.classList.remove('available');
+                    CheckDuplicateButton.classList.add('unavailable');
+                    CheckDuplicateButton.textContent = '재확인';
+                    InputUsername.classList.add('error');
                     document.querySelector('.form-label').classList.add('error');
-                    elInputUsername.placeholder = ''; 
+                    InputUsername.placeholder = ''; 
                     document.querySelector('.username-message').style.opacity = 1; 
                 } else {
-                    elCheckDuplicateButton.classList.remove('unavailable');
-                    elCheckDuplicateButton.classList.add('available');
-                    elCheckDuplicateButton.textContent = '사용가능';
-                    elInputUsername.classList.remove('error');
+                    CheckDuplicateButton.classList.remove('unavailable');
+                    CheckDuplicateButton.classList.add('available');
+                    CheckDuplicateButton.textContent = '사용 가능';
+                    InputUsername.classList.remove('error');
                     document.querySelector('.form-label').classList.remove('error');
-                    elInputUsername.placeholder = ''; 
+                    InputUsername.placeholder = ''; 
                     document.querySelector('.username-message').style.opacity = 0; 
                 }
             }
-        });
-        elInputPassword.addEventListener('keyup', function () {
-            if (elInputPassword.value.length !== 0) {
-                if (strongPassword(elInputPassword.value)) {
-                    elStrongPasswordMessage.classList.add('hide');
-                    elInputPassword.classList.remove('error');
-                    elPasswordLabel.classList.remove('error');
+        });      
+        InputPassword.addEventListener('keyup', function () {
+            if (InputPassword.value.length !== 0) {
+                if (strongPassword(InputPassword.value)) {
+                    StrongPasswordMessage.style.opacity = 0;
+                    InputPassword.classList.remove('error');
+                    PasswordLabel.classList.remove('error');
                 } else {
-                    elStrongPasswordMessage.classList.remove('hide');
-                    elInputPassword.classList.add('error');
-                    elPasswordLabel.classList.add('error');
+                    StrongPasswordMessage.style.opacity = 1;
+                    InputPassword.classList.add('error');
+                    PasswordLabel.classList.add('error');
                 }
             } else {
-                elStrongPasswordMessage.classList.add('hide');
-                elInputPassword.classList.remove('error');
-                elPasswordLabel.classList.remove('error');
+                StrongPasswordMessage.style.opacity = 0;
+                InputPassword.classList.remove('error');
+                PasswordLabel.classList.remove('error');
             }
-        });
-        elInputPasswordRetype.addEventListener('keyup', function () {
-            if (elInputPasswordRetype.value.length !== 0) {
-                if (isMatch(elInputPassword.value, elInputPasswordRetype.value)) {
-                    elMismatchMessage.classList.add('hide');
-                    elInputPasswordRetype.classList.remove('error');
-                    elPasswordRetypeLabel.classList.remove('error');
+        });      
+        InputPasswordRetype.addEventListener('keyup', function () {
+            if (InputPasswordRetype.value.length !== 0) {
+                if (isMatch(InputPassword.value, InputPasswordRetype.value)) {
+                    MismatchMessage.style.opacity = 0;
+                    InputPasswordRetype.classList.remove('error');
+                    PasswordRetypeLabel.classList.remove('error');
                 } else {
-                    elMismatchMessage.classList.remove('hide');
-                    elInputPasswordRetype.classList.add('error');
-                    elPasswordRetypeLabel.classList.add('error');
+                    MismatchMessage.style.opacity = 1;
+                    InputPasswordRetype.classList.add('error');
+                    PasswordRetypeLabel.classList.add('error');
                 }
             } else {
-                elMismatchMessage.classList.add('hide');
-                elInputPasswordRetype.classList.remove('error');
-                elPasswordRetypeLabel.classList.remove('error');
+                MismatchMessage.style.opacity = 0;
+                InputPasswordRetype.classList.remove('error');
+                PasswordRetypeLabel.classList.remove('error');
             }
-        });
+        });       
         document.querySelector('.btnMember').addEventListener('click', function(event) {
             event.preventDefault(); 
-            let username = elInputUsername.value;
-            let password = elInputPassword.value;
+            let username = InputUsername.value;
+            let password = InputPassword.value;
             let name = document.querySelector('#inputName').value;
             let phone = document.querySelector('#inputPhone').value;
             let address = document.querySelector('#inputAddress').value;
@@ -169,7 +172,7 @@
                 idLength(username) &&
                 onlyNumberAndEnglish(username) &&
                 strongPassword(password) &&
-                isMatch(password, elInputPasswordRetype.value)
+                isMatch(password, InputPasswordRetype.value)
             ) {
                 let users = JSON.parse(localStorage.getItem('users')) || [];
                 users.push({
@@ -182,15 +185,15 @@
                 localStorage.setItem('users', JSON.stringify(users));
                 alert("회원가입이 완료되었습니다!");
                 document.querySelector('form').reset();
-                elCheckDuplicateButton.classList.remove('available', 'unavailable');
-                elCheckDuplicateButton.textContent = '중복확인';
-                elStrongPasswordMessage.classList.add('hide');
-                elMismatchMessage.classList.add('hide');
-                elPasswordLabel.classList.remove('error');
-                elPasswordRetypeLabel.classList.remove('error');
+                CheckDuplicateButton.classList.remove('available', 'unavailable');
+                CheckDuplicateButton.textContent = '중복 확인';
+                StrongPasswordMessage.style.opacity = 0;
+                MismatchMessage.style.opacity = 0;
+                PasswordLabel.classList.remove('error');
+                PasswordRetypeLabel.classList.remove('error');
                 document.querySelector('.form-label').classList.remove('error'); 
-                elInputUsername.classList.remove('error');
-                elInputUsername.placeholder = '예) dugout'; 
+                InputUsername.classList.remove('error');
+                InputUsername.placeholder = '예) dugout'; 
                 document.querySelector('.username-message').style.opacity = 0; 
             } else {
                 alert("입력한 정보를 확인해 주세요.");
