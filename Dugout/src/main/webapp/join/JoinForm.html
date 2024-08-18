@@ -18,25 +18,25 @@
     <hr class="join-hr">
     <main id="member-form">
         <section class="title">
-            <span class="join">회원 가입</span>
+            <span class="join">JOIN</span>
         </section>
         <form class="row g-3">
             <fieldset class="col-12">
                 <div class="mb-3 form-group">
                     <label for="inputId" class="form-label">아이디</label>
-                    <input type="text" class="form-control" id="inputId" placeholder="예) dugout">
-                    <button type="button" class="check-duplicate">중복 확인</button>
+                    <input type="text" class="form-control" id="inputId" placeholder="예) dugout (영문 또는 숫자 4~12자리)">
+                    <button type="button" class="id-check">중복확인</button>
                     <span class="message username-message">이미 존재하는 아이디입니다.</span>
                 </div>
                 <div class="mb-3 form-group">
-                    <label for="inputPassword" class="form-label">비밀번호</label>
-                    <input type="password" class="form-control" id="inputPassword" placeholder="영문, 숫자 조합 8 ~ 16자">
-                    <span class="message strongPassword-message">비밀번호 형식이 올바르지 않습니다.</span>
+                    <label for="passwordIn" class="form-label">비밀번호</label>
+                    <input type="password" class="form-control" id="input-password" placeholder="영문, 숫자 조합 8 ~ 16자">
+                    <span class="message password-check">비밀번호 형식이 올바르지 않습니다.</span>
                 </div>
                 <div class="mb-3 form-group">
-                    <label for="inputPasswordConfirm" class="form-label">비밀번호 확인</label>
-                    <input type="password" class="form-control" id="inputPasswordConfirm" placeholder="비밀번호 확인">
-                    <span class="message mismatch-message">비밀번호가 일치하지 않습니다.</span>
+                    <label for="passwordInConfirm" class="form-label">비밀번호 확인</label>
+                    <input type="password" class="form-control" id="password-confirm" placeholder="비밀번호 확인">
+                    <span class="message wrong-password">비밀번호가 일치하지 않습니다.</span>
                 </div>
                 <div class="mb-3">
                     <label for="inputName" class="form-label">이름</label>
@@ -55,150 +55,204 @@
         </form>
     </main>
     <footer></footer>
-    <script src="../common/jquery/jquery.min.js"></script>
-    <script src="../common/bootstrap/bootstrap.bundle.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("footer").load("../main/Footer.html");
-            $("header").load("../main/Header.html");
-        });
+<script src="../common/jquery/jquery.min.js"></script>
+<script src="../common/bootstrap/bootstrap.bundle.min.js"></script>
+<script>
+$(document).ready(function () {
+    $("footer").load("../main/Footer.html");
+    $("header").load("../main/Header.html");
 
-        let InputUsername = document.querySelector('#inputId'); 
-        let CheckDuplicateButton = document.querySelector('.check-duplicate'); 
-        let InputPassword = document.querySelector('#inputPassword'); 
-        let InputPasswordRetype = document.querySelector('#inputPasswordConfirm'); 
-        let MismatchMessage = document.querySelector('.mismatch-message');
-        let StrongPasswordMessage = document.querySelector('.strongPassword-message'); 
-        let PasswordLabel = document.querySelector('label[for="inputPassword"]'); 
-        let PasswordRetypeLabel = document.querySelector('label[for="inputPasswordConfirm"]');
-        function idLength(str) {
-            return str.length >= 4 && str.length <= 12;
+    document.querySelector('.btnMember').disabled = true;
+});
+let userId = document.querySelector('#inputId'); 
+let idCheck = document.querySelector('.id-check'); 
+let passwordIn = document.querySelector('#input-password'); 
+let passwordCheckMsg = document.querySelector('.password-check'); 
+let wrongPassword = document.querySelector('.wrong-password');
+let passwordReInput = document.querySelector('#password-confirm');
+let memberButton = document.querySelector('.btnMember');
+
+function idLength(str) {
+    return str.length >= 4 && str.length <= 12;
+}
+function numberAndEng(str) {
+    return /^[A-Za-z\d]{4,12}$/.test(str);
+}
+function strongPassword(str) {
+    return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/.test(str);
+}  
+function isMatch(password, passwordRetype) {
+    return password === passwordRetype;
+} 
+function checkId(username) {
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    return users.some(user => user.id === username);
+}
+function checkForm() {
+    let username = userId.value;
+    let password = passwordIn.value;
+    let confirmPassword = passwordReInput.value;
+    let name = document.querySelector('#inputName').value;
+    let phone = document.querySelector('#inputPhone').value;
+    let address = document.querySelector('#inputAddress').value;
+
+    if (
+        idLength(username) &&
+        numberAndEng(username) &&
+        !checkId(username) &&
+        strongPassword(password) &&
+        isMatch(password, confirmPassword) &&
+        name.trim() !== "" && 
+        phone.trim() !== "" && 
+        address.trim() !== ""
+    ) {
+        memberButton.disabled = false;
+        memberButton.classList.add('active');
+        memberButton.style.backgroundColor = '#333333';
+        memberButton.style.cursor = 'pointer';
+    } else {
+        memberButton.disabled = true;
+        memberButton.classList.remove('active');
+        memberButton.style.backgroundColor = '#ebebeb';
+        memberButton.style.cursor = 'default';
+    }
+}
+
+userId.addEventListener('input', function () {
+    let username = userId.value;
+    if (username.length > 0) {
+        if (idLength(username) && numberAndEng(username)) {
+            idCheck.classList.remove('unavailable', 'available');
+            idCheck.textContent = '중복확인';
+            userId.placeholder = '예) dugout (영문 또는 숫자 4~12자리)'; 
+            document.querySelector('.username-message').style.opacity = 0; 
+        } else {
+            idCheck.classList.remove('available');
+            idCheck.classList.add('unavailable');
+            idCheck.textContent = '사용불가';
         }
-        function onlyNumberAndEnglish(str) {
-            return /^[A-Za-z\d]{8,16}$/.test(str);
+    } else {
+        idCheck.classList.remove('available', 'unavailable');
+        idCheck.textContent = '중복확인';
+        userId.placeholder = '예) dugout (영문 또는 숫자 4~12자리)'; 
+        userId.classList.remove('error'); 
+        document.querySelector('.form-label').classList.remove('error'); 
+        document.querySelector('.username-message').style.opacity = 0; 
+    }
+    checkForm();
+});      
+
+idCheck.addEventListener('click', function () {
+    let username = userId.value;
+    if (username.length > 0) {
+        if (idCheck.classList.contains('unavailable')) {
+            userId.value = '';
+            userId.classList.remove('error');
+            document.querySelector('.form-label').classList.remove('error');
+            idCheck.classList.remove('unavailable');
+            idCheck.textContent = '중복확인';
+            document.querySelector('.username-message').style.opacity = 0;
+        } else if (checkId(username)) {
+            idCheck.classList.remove('available');
+            idCheck.classList.add('unavailable');
+            idCheck.textContent = '사용불가';
+            userId.classList.add('error');
+            document.querySelector('.form-label').classList.add('error');
+            document.querySelector('.username-message').style.opacity = 1; 
+        } else {
+            idCheck.classList.remove('unavailable');
+            idCheck.classList.add('available');
+            idCheck.textContent = '사용가능';
+            userId.classList.remove('error');
+            document.querySelector('.form-label').classList.remove('error');
+            document.querySelector('.username-message').style.opacity = 0; 
         }
-        function strongPassword(str) {
-            return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,16}$/.test(str);
-        }  
-        function isMatch(password, passwordRetype) {
-            return password === passwordRetype;
-        } 
-        function checkIdAvailability(username) {
-            let users = JSON.parse(localStorage.getItem('users')) || [];
-            return users.some(user => user.id === username);
-        } 
-        InputUsername.addEventListener('input', function () {
-            let username = InputUsername.value;
-            if (username.length > 0) {
-                if (idLength(username) && onlyNumberAndEnglish(username)) {
-                    CheckDuplicateButton.classList.remove('unavailable', 'available');
-                    CheckDuplicateButton.textContent = '중복 확인';
-                    InputUsername.placeholder = '예) dugout'; 
-                    document.querySelector('.username-message').style.opacity = 0; 
-                } 
-            } else {
-                CheckDuplicateButton.classList.remove('available', 'unavailable');
-                CheckDuplicateButton.textContent = '중복 확인';
-                InputUsername.placeholder = '예) dugout'; 
-                InputUsername.classList.remove('error'); 
-                document.querySelector('.form-label').classList.remove('error'); 
-                document.querySelector('.username-message').style.opacity = 0; 
-            }
-        });      
-        CheckDuplicateButton.addEventListener('click', function () {
-            let username = InputUsername.value;
-            if (username.length > 0) {
-                if (checkIdAvailability(username)) {
-                    CheckDuplicateButton.classList.remove('available');
-                    CheckDuplicateButton.classList.add('unavailable');
-                    CheckDuplicateButton.textContent = '재확인';
-                    InputUsername.classList.add('error');
-                    document.querySelector('.form-label').classList.add('error');
-                    InputUsername.placeholder = ''; 
-                    document.querySelector('.username-message').style.opacity = 1; 
-                } else {
-                    CheckDuplicateButton.classList.remove('unavailable');
-                    CheckDuplicateButton.classList.add('available');
-                    CheckDuplicateButton.textContent = '사용 가능';
-                    InputUsername.classList.remove('error');
-                    document.querySelector('.form-label').classList.remove('error');
-                    InputUsername.placeholder = ''; 
-                    document.querySelector('.username-message').style.opacity = 0; 
-                }
-            }
-        });      
-        InputPassword.addEventListener('keyup', function () {
-            if (InputPassword.value.length !== 0) {
-                if (strongPassword(InputPassword.value)) {
-                    StrongPasswordMessage.style.opacity = 0;
-                    InputPassword.classList.remove('error');
-                    PasswordLabel.classList.remove('error');
-                } else {
-                    StrongPasswordMessage.style.opacity = 1;
-                    InputPassword.classList.add('error');
-                    PasswordLabel.classList.add('error');
-                }
-            } else {
-                StrongPasswordMessage.style.opacity = 0;
-                InputPassword.classList.remove('error');
-                PasswordLabel.classList.remove('error');
-            }
-        });      
-        InputPasswordRetype.addEventListener('keyup', function () {
-            if (InputPasswordRetype.value.length !== 0) {
-                if (isMatch(InputPassword.value, InputPasswordRetype.value)) {
-                    MismatchMessage.style.opacity = 0;
-                    InputPasswordRetype.classList.remove('error');
-                    PasswordRetypeLabel.classList.remove('error');
-                } else {
-                    MismatchMessage.style.opacity = 1;
-                    InputPasswordRetype.classList.add('error');
-                    PasswordRetypeLabel.classList.add('error');
-                }
-            } else {
-                MismatchMessage.style.opacity = 0;
-                InputPasswordRetype.classList.remove('error');
-                PasswordRetypeLabel.classList.remove('error');
-            }
-        });       
-        document.querySelector('.btnMember').addEventListener('click', function(event) {
-            event.preventDefault(); 
-            let username = InputUsername.value;
-            let password = InputPassword.value;
-            let name = document.querySelector('#inputName').value;
-            let phone = document.querySelector('#inputPhone').value;
-            let address = document.querySelector('#inputAddress').value;
-            if (
-                idLength(username) &&
-                onlyNumberAndEnglish(username) &&
-                strongPassword(password) &&
-                isMatch(password, InputPasswordRetype.value)
-            ) {
-                let users = JSON.parse(localStorage.getItem('users')) || [];
-                users.push({
-                    id: username,
-                    password: password,
-                    name: name,
-                    phone: phone,
-                    address: address
-                });
-                localStorage.setItem('users', JSON.stringify(users));
-                alert("회원가입이 완료되었습니다!");
-                document.querySelector('form').reset();
-                CheckDuplicateButton.classList.remove('available', 'unavailable');
-                CheckDuplicateButton.textContent = '중복 확인';
-                StrongPasswordMessage.style.opacity = 0;
-                MismatchMessage.style.opacity = 0;
-                PasswordLabel.classList.remove('error');
-                PasswordRetypeLabel.classList.remove('error');
-                document.querySelector('.form-label').classList.remove('error'); 
-                InputUsername.classList.remove('error');
-                InputUsername.placeholder = '예) dugout'; 
-                document.querySelector('.username-message').style.opacity = 0; 
-            } else {
-                alert("입력한 정보를 확인해 주세요.");
-            }
+    }
+    checkForm();
+});      
+
+passwordIn.addEventListener('keyup', function () {
+    let passwordLabel = document.querySelector('label[for="passwordIn"]');
+    if (passwordIn.value.length !== 0) {
+        if (strongPassword(passwordIn.value)) {
+            passwordCheckMsg.style.opacity = 0;
+            passwordIn.classList.remove('error');
+            passwordLabel.classList.remove('error');
+        } else {
+            passwordCheckMsg.style.opacity = 1;
+            passwordIn.classList.add('error');
+            passwordLabel.classList.add('error');
+        }
+    } else {
+        passwordCheckMsg.style.opacity = 0;
+        passwordIn.classList.remove('error');
+        passwordLabel.classList.remove('error');
+    }
+    checkForm();
+});      
+
+passwordReInput.addEventListener('keyup', function () {
+    let confirmPasswordLabel = document.querySelector('label[for="passwordInConfirm"]');
+    if (passwordReInput.value.length !== 0) {
+        if (isMatch(passwordIn.value, passwordReInput.value)) {
+            wrongPassword.style.opacity = 0;
+            passwordReInput.classList.remove('error');
+            confirmPasswordLabel.classList.remove('error');
+        } else {
+            wrongPassword.style.opacity = 1;
+            passwordReInput.classList.add('error');
+            confirmPasswordLabel.classList.add('error');
+        }
+    } else {
+        wrongPassword.style.opacity = 0;
+        passwordReInput.classList.remove('error');
+        confirmPasswordLabel.classList.remove('error');
+    }
+    checkForm();
+});       
+
+document.querySelector('#inputName').addEventListener('input', function() {
+    checkForm();
+});
+
+document.querySelector('#inputPhone').addEventListener('input', function() {
+    checkForm();
+});
+
+document.querySelector('#inputAddress').addEventListener('input', function() {
+    checkForm();
+});
+
+document.querySelector('.btnMember').addEventListener('click', function(event) {
+    event.preventDefault(); 
+    let joinId = userId.value;
+    let password = passwordIn.value;
+    let name = document.querySelector('#inputName').value;
+    let phone = document.querySelector('#inputPhone').value;
+    let address = document.querySelector('#inputAddress').value;
+
+    if (
+        idLength(joinId) &&
+        numberAndEng(joinId) &&
+        strongPassword(password) &&
+        isMatch(password, passwordReInput.value) &&
+        name.trim() !== "" &&
+        phone.trim() !== "" &&
+        address.trim() !== ""
+    ) {
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+        users.push({
+            id: joinId,
+            password: password,
+            name: name,
+            phone: phone,
+            address: address
         });
-    </script>
+        localStorage.setItem('users', JSON.stringify(users));
+        alert("회원가입이 완료되었습니다!");
+        location.href = '../main/Main.html';
+    }
+});
+</script>
 </body>
 </html>
