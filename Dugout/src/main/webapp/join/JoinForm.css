@@ -46,8 +46,7 @@ form {
     left:33%;
     top: 75%;
     transform: translateY(-50%);
-    width: 100%;
- 
+    width: 100%; 
 }
 .form-control {
     border: none !important;
@@ -62,7 +61,7 @@ form {
 }
 .form-control.error {
     border: none;
-    border-bottom: 1px solid #dc3545 !important; /* red */
+    border-bottom: 1px solid #dc3545 !important; 
 }
 .form-control:focus {
     border-color: #333333;
@@ -70,7 +69,7 @@ form {
     outline: none;
 }
 .form-label.error {
-    color: #dc3545; /* red */
+    color: #dc3545; 
 }
 button {
     width: 100%;
@@ -105,11 +104,11 @@ button {
     z-index: 1;
 }
 .check-duplicate.unavailable {
-    background-color: #dc3545; /* red */
+    background-color: #dc3545; 
     color: #ffffff;
 }
 .check-duplicate.available {
-    background-color: #28a745; /* green */
+    background-color: #28a745; 
     color: #ffffff;
 }
 .btnMember {
